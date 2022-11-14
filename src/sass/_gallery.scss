@@ -4,10 +4,10 @@
   // padding-bottom: 40px;
   // padding-top: 20px;
 
-  @include tablet-screen {
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
+  // @include tablet-screen {
+  //   padding-bottom: 60px;
+  //   padding-top: 60px;
+  // }
 
   // @include desktop-screen {
   //   padding-bottom: 60px;
@@ -16,6 +16,43 @@
 }
 
 .gallery {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .gallery__item {
+  list-style: none;
+  margin: 16px;
+}
+
+.gallery__link {
+  text-decoration: none;
+  color: black;
+}
+.gallery__img {
+  display: block;
+  height: 395px;
+}
+.gallery__title {
+  margin-top: 12px;
+  line-height: 1.2;
+  // position: absolute;
+  width: 187px;
+  height: 48px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+  display: inline;
+}
+.gallery__text {
+  line-height: 1.2;
+
+  // position: absolute;
+  width: 187px;
+  height: 48px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ff6b08;
 }
