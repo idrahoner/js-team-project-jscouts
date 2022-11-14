@@ -15,7 +15,8 @@
 
 .footer__section {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -32,15 +33,12 @@
 .footer__text {
   display: flex;
 
-
   font-size: 14px;
   line-height: 1.1;
   color: #545454;
 
 
-
   @media screen and (min-width: 768px) {
-
     font-size: 16px;
     line-height: 1.2;
   }
@@ -50,12 +48,14 @@
 .footer__link {
   color: #545454;
   text-decoration: underline;
-
+  margin-left: 4px;
 }
 
 .footer__icon {
+
   margin-left: 10px;
   margin-right: 10px;
+
 }
 
 
