@@ -1,0 +1,21 @@
+// .section {
+// }
+.container {
+  // padding-bottom: 40px;
+  // padding-top: 20px;
+
+  @include tablet-screen {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  // @include desktop-screen {
+  //   padding-bottom: 60px;
+  //   padding-top: 60px;
+  // }
+}
+
+.gallery {
+}
+.gallery__item {
+}
