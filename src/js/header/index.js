@@ -1,5 +1,6 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import card from '../../templates/card.hbs';
 
 export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
@@ -42,7 +43,6 @@ export function handleSubmit(event) {
   }
   loader.classList.toggle('loader-hidden');
   obj.setQuery(inputValue);
-
   obj
     .searchMovie()
     .then(data => {
@@ -50,6 +50,7 @@ export function handleSubmit(event) {
         Notify.failure('No such movie');
       }
     })
+    .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));
 
   event.currentTarget.reset();
