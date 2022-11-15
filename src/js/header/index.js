@@ -1,6 +1,8 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import card from '../../templates/card.hbs';
 
+const gallery = document.querySelector('.gallery');
 export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
 export const headerWrapper = document.querySelector('.header__wrapper');
@@ -42,14 +44,29 @@ export function handleSubmit(event) {
   }
   loader.classList.toggle('loader-hidden');
   obj.setQuery(inputValue);
-
   obj
     .searchMovie()
     .then(data => {
       if (data.results.length === 0) {
         Notify.failure('No such movie');
       }
+      gallery.innerHTML = card(data.results);
+      obj.getGenreList().then(genres => {
+        const d = document.querySelectorAll('.templates-film__text');
+        for (let i = 0; i < data.results.length; i++) {
+          const r = data.results[i].genre_ids;
+          for (let j = 0; j < genres.length; j++) {
+            if (r.includes(genres[j].id)) {
+              d[i].innerHTML +=
+                ' ' + genres[j].name + ' <span class="span"> , </span> ';
+            }
+          }
+          const dat = new Date(data.results[i].release_date);
+          d[i].innerHTML += '| ' + dat.getFullYear();
+        }
+      });
     })
+    .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));
 
   event.currentTarget.reset();
