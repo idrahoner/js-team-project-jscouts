@@ -2,8 +2,9 @@ import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import card from '../../templates/card.hbs';
 import { renderGallery } from '../gallery';
+import { QUEUE_MOVIE_KEY, LocalStorageAPI } from '../utils/local-storage-api';
 
-const gallery = document.querySelector('.gallery');
+export const gallery = document.querySelector('.gallery');
 export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
 export const headerWrapper = document.querySelector('.header__wrapper');
@@ -47,7 +48,17 @@ export function handleSubmit(event) {
   obj.setQuery(inputValue);
   obj
     .searchMovie()
-    .then(({ results }) => renderGallery(results))
+    .then(({ results }) => {
+      if (results.length === 0) {
+        Notify.failure('No such movie');
+        return;
+      }
+      // developement. will remove
+
+      localStorage.setItem(QUEUE_MOVIE_KEY, JSON.stringify(results));
+      //
+      return renderGallery(results);
+    })
     .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));
 
@@ -56,7 +67,6 @@ export function handleSubmit(event) {
 
 headerWrapper.addEventListener('click', handleDirectToMain);
 export function handleDirectToMain(event) {
-  console.log(event.target);
   if (
     event.target.classList.contains('logo') ||
     event.target.classList.contains('js-home-btn') ||
@@ -65,4 +75,15 @@ export function handleDirectToMain(event) {
   ) {
     location.reload();
   }
+}
+// library render
+const LSAPI = new LocalStorageAPI(QUEUE_MOVIE_KEY);
+console.log(LSAPI.getItems());
+// console.log(LSAPI);
+// console.log(localStorage.getItem(QUEUE_MOVIE_KEY));
+
+libraryBtn.addEventListener('click', handleDirectToLibrary);
+function handleDirectToLibrary() {
+  const myLibraryItems = LSAPI.getItems();
+  renderGallery(myLibraryItems);
 }
