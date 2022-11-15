@@ -32,6 +32,11 @@ export class API {
       }&page=${this.page}`
     ).then(({ data }) => data);
   }
+
+  getGanreList() {
+    return axios(`${this.#url}/genre/movie/list?api_key=${this.#key}`).then(({data}) => data.genres);
+  }
+
   icnreasePage() {
     this.page += 1;
   }
