@@ -98,7 +98,7 @@
   width: 48%;
 
   @include tablet-screen {
-    width: 86%;
+    width: 60%;
   }
 }
 
@@ -206,10 +206,13 @@
 
 .modal__info-vote {
   background: #ff6b01;
+  color: white;
   border-radius: 5px;
+  padding: 1px 9px;
 }
 
 .modal__info-votes{
   background: #F7F7F7;
   border-radius: 5px;
+  padding: 1px 4px;
 }

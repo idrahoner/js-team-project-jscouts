@@ -3,9 +3,8 @@
   <div class="modal__img">
       <img
         class="modal___img-movie"
-        src="https://image.tmdb.org/t/p/w500{{this.poster_path}}"
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
         alt="Poster of movie"
-
         loading="lazy"
       />
     </div>
@@ -14,7 +13,8 @@
       <ul class="modal__list">
         <li class="modal__item">
           <p class="modal__category">Vote/Votes</p>
-          <p class="modal__info modal__info-vote"><span "modal__info-vote">{{this.vote_average}}</span> /<span "modal__info-votes">{{this.vote_count}}</span></p>
+          <p class="modal__info"> <span class="modal__info-vote">{{this.vote_average}}</span> / <span class="modal__info-votes"> {{this.vote_count}}</span></p>
+
         </li>
         <li class="modal__item">
           <p class="modal__category">Popularity</p>
