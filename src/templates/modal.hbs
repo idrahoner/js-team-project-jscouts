@@ -1,0 +1,45 @@
+{{#each this}}
+<div class="modal__img">
+<img class="modal___img-movie" src="{{this.backdrop_path}}" alt="" loading="lazy"/>
+</div>
+<div class="modal__films">
+<h1 class="modal__film-title">{{this.title}}</h1>
+<ul class="modal__list">
+<li class="modal__item">
+  <p class="modal__category">
+   Vote/Votes
+  </p>
+  <p class="modal__info">
+    {{this.vote_average}}/ {{this.vote_count}}
+  </p>
+</li>
+<li class="modal__item">
+  <p class="modal__category">
+    Popularity
+   </p>
+  <p class="modal__info">
+    {{this.popularity}}
+  </p>
+</li>
+<li class="modal__item">
+  <p class="modal__category">
+    Original Title
+   </p>
+  <p class="modal__info">
+    {{this.original_title}}
+  </p>
+</li>
+<li class="modal__item">
+  <p class="modal__category">
+   Genre
+   </p>
+  <p class="modal__info">
+    {{this.genre_ids}}
+  </p>
+</li>
+</ul>
+<div class="modal__film-info">
+<h2 class="modal__film">About</h2>
+<p class="modal__film-describe">{{this.overview}}</p>
+</div>
+{{/each}}
