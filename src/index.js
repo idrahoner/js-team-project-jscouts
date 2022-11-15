@@ -1,2 +1,2 @@
 
-import { puggination } from "./js/pagination/paginnation";
+import { getPost } from "./js/pagination/paginnation";
