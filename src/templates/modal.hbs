@@ -1,60 +1,41 @@
 
 {{#with this}}
-<div class="backdrop" data-modal>
-  <div class="modal">
-     <button class="modal__btn-close" data-modal-close>
-        <svg class="modal__icon" width="14" height="14">
-          <use href="./images/footer.icon.svg#icon-close-button"></use>
-        </svg>
-      </button>
-<div class="modal__img">
-<img class="modal___img-movie" src={{this.backdrop_path}} alt="" loading="lazy"/>
-</div>
-<div class="modal__films">
-<h1 class="modal__film-title">{{this.title}}</h1>
-<ul class="modal__list">
-<li class="modal__item">
-  <p class="modal__category">
-   Vote/Votes
-  </p>
-  <p class="modal__info">
-    {{this.vote_average}}/ {{this.vote_count}}
-  </p>
-</li>
-<li class="modal__item">
-  <p class="modal__category">
-    Popularity
-   </p>
-  <p class="modal__info">
-    {{this.popularity}}
-  </p>
-</li>
-<li class="modal__item">
-  <p class="modal__category">
-    Original Title
-   </p>
-  <p class="modal__info">
-    {{this.original_title}}
-  </p>
-</li>
-<li class="modal__item">
-  <p class="modal__category">
-   Genre
-   </p>
-  <p class="modal__info">
-    {{this.genre_ids}}
-  </p>
-</li>
-</ul>
-<div class="modal__film-info">
-<h2 class="modal__film">About</h2>
-<p class="modal__film-describe">{{this.overview}}</p>
-</div>
-<div class="modal__btn">
-  <button class="modal__btn-watched" type="button">add to Watched</button>
-  <button class="modal__btn-queue" type="button">add to queue</button>
-  </div>
-  </div>
-  </div>
-  </div>
+  <div class="modal__img">
+      <img
+        class="modal___img-movie"
+        src='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
+        alt="Poster of movie"
+        loading="lazy"
+      />
+    </div>
+    <div class="modal__films">
+      <h1 class="modal__film-title">{{this.title}}</h1>
+      <ul class="modal__list">
+        <li class="modal__item">
+          <p class="modal__category">Vote/Votes</p>
+          <p class="modal__info">{{this.vote_average}}/ {{this.vote_count}}</p>
+        </li>
+        <li class="modal__item">
+          <p class="modal__category">Popularity</p>
+          <p class="modal__info">{{this.popularity}}</p>
+        </li>
+        <li class="modal__item">
+          <p class="modal__category">Original Title</p>
+          <p class="modal__info">{{this.original_title}}</p>
+        </li>
+        <li class="modal__item">
+          <p class="modal__category">Genre</p>
+          <p class="modal__info">{{this.genre_ids}}</p>
+        </li>
+      </ul>
+      <div class="modal__film-info">
+        <h2 class="modal__film">About</h2>
+        <p class="modal__film-describe">
+          {{this.overview}}
+        </p>
+      </div>
+      <div class="modal__btn">
+        <button class="modal__btn-watched" type="button">add to Watched</button>
+        <button class="modal__btn-queue" type="button">add to queue</button>
+      </div>
 {{/with}}

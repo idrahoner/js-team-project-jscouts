@@ -33,7 +33,6 @@
   cursor: pointer;
 }
 
-
 .modal {
   position: absolute;
   top: 25%;
@@ -49,12 +48,10 @@
   width: 100%;
   padding: 48px 20px 40px 20px;
 
-
   @include tablet-screen {
     display: flex;
     max-width: 704px;
     padding: 40px 72px 40px 36px;
-
   }
 
   @include desktop-screen {
@@ -62,9 +59,8 @@
     max-width: 806px;
     padding: 40px 12px;
   }
-
 }
-.modal__film-title{
+.modal__film-title {
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -77,10 +73,9 @@
   @include desktop-screen {
     font-size: 30px;
   }
-
 }
 
-.modal__list{
+.modal__list {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -93,7 +88,7 @@
 }
 
 .modal__category {
-  color: #8C8C8C;
+  color: #8c8c8c;
   width: 48%;
 }
 .modal__info {
@@ -104,14 +99,13 @@
   }
 }
 
-.modal__film{
+.modal__film {
   font-size: inherit;
   margin-top: 20px;
   text-transform: uppercase;
-
 }
 
-.modal__film-describe{
+.modal__film-describe {
   margin-top: 8px;
   line-height: 1.7;
 }
@@ -136,13 +130,12 @@
   text-transform: uppercase;
   padding: 6px 27px;
   border: transparent;
-  background: #FF6B01;
-  color: #FFFFFF;
+  background: #ff6b01;
+  color: #ffffff;
 
   @include tablet-screen {
     width: 125px;
     padding: 14px 9px;
-
   }
 
   @include desktop-screen {
@@ -163,8 +156,6 @@
   @include tablet-screen {
     width: 125px;
     padding: 14px 7px;
-
-
   }
 
   @include desktop-screen {
@@ -177,21 +168,16 @@
   @include tablet-screen {
     width: 50%;
   }
-
 }
 
 .modal__films {
   @include tablet-screen {
     width: 50%;
   }
-
 }
 
-
-.modal___img-movie{
+.modal___img-movie {
   @include desktop-screen {
     width: 95%;
   }
 }
-
-
