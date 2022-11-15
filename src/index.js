@@ -9,4 +9,12 @@ const QUEUE_MOVIE_KEY = 'queueMovieList';
 const watchedMovieStore = new LocalStorageAPI(WATCHED_MOVIE_KEY);
 const queueMovieStore = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
-initLoad();
+// initLoad();
+
+import { showMovieDetails } from './js/modal/modal';
+
+const openModalBtn = document.querySelector('.open-modal');
+
+openModalBtn.addEventListener('click', () => {
+  showMovieDetails(505642);
+});
