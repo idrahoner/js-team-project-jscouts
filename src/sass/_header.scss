@@ -1,0 +1,189 @@
+@media screen and (max-width: 767px) {
+  .header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/tel-bkg.png');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/tel-bkg@2x.png');
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../images/teblet-bkg.png');
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/teblet-bkg@2x.png');
+    }
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header {
+    background-image: url('../images/desktop-bkg.png');
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url('../images/desktop-bkg@2x.png');
+    }
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  &__text {
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+    font-weight: 500;
+    line-height: 1.16;
+    font-size: 30px;
+  }
+}
+
+.header {
+  color: #fff;
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__nav {
+    list-style: none;
+    display: flex;
+
+    gap: 40px;
+  }
+  &__nav__btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    color: inherit;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: uppercase;
+    padding: 0;
+  }
+  &__nav__item {
+    position: relative;
+  }
+  &__nav__item:first-child::after {
+    content: '';
+    background-color: #ff001b;
+    height: 3px;
+    width: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  &__nav__item:nth-child(2)::after {
+    content: '';
+    background-color: #ff001b;
+    height: 3px;
+    width: 69px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+.search-form__btn {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-form {
+  text-align: center;
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+  }
+}
+.header__container {
+  @media screen and (max-width: 767px) {
+    padding: 40px 20px 92px 20px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 40px 32px 81px 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 45px 32px 44px 32px;
+  }
+}
+.search-form__input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: #fff 1px solid;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.14;
+  padding-bottom: 4px;
+  &::placeholder {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.14;
+  }
+  min-width: 280px;
+  @media screen and (min-width: 768px) {
+    min-width: 336px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 394px;
+  }
+}
+.header__option__btn {
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 12px 10px 12px 10px;
+  text-align: center;
+  min-width: 130px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:first-child {
+    background-color: transparent;
+    border: #fff 1px solid;
+  }
+  &:nth-child(2) {
+    background-color: #ff6b01;
+    border: #ff6b01 1px solid;
+  }
+  @media screen and (min-width: 768px) {
+    min-width: 152px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 148px;
+  }
+  &-list {
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width: 767px) {
+      gap: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      gap: 32px;
+    }
+    @media screen and (min-width: 1280px) {
+      gap: 16px;
+    }
+  }
+}
+.hidden-in-header {
+  display: none;
+}
