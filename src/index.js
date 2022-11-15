@@ -1,4 +1,5 @@
 import * as hesderJS from './js/header/index';
+
 import {API} from './js/utils/api';
 import card from './templates/card.hbs'
 const gallery = document.querySelector('.gallery');

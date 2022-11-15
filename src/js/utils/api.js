@@ -9,6 +9,7 @@ export class API {
     this.#key = '4482c6f70dd5d76d520552b0779b25da';
     this.page = 1;
     this.query = '';
+
   }
 
   getPopularMovies() {

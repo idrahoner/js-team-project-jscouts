@@ -1,6 +1,7 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
 export const headerWrapper = document.querySelector('.header__wrapper');
 export const homeNavItem = document.querySelector('.js-home-nav-item');
@@ -39,12 +40,18 @@ export function handleSubmit(event) {
     Notify.info('Please, type movie name');
     return;
   }
+  loader.classList.toggle('loader-hidden');
   obj.setQuery(inputValue);
-  obj.searchMovie().then(data => {
-    if (data.results.length === 0) {
-      Notify.failure('No such movie');
-    }
-  });
+
+  obj
+    .searchMovie()
+    .then(data => {
+      if (data.results.length === 0) {
+        Notify.failure('No such movie');
+      }
+    })
+    .then(() => loader.classList.toggle('loader-hidden'));
+
   event.currentTarget.reset();
 }
 
