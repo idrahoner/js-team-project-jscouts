@@ -30,6 +30,8 @@ function onEscKeydown(e) {
 export function showMovieDetails(movieId) {
   onOpenModal();
   getDetails.getMovieById(movieId).then(data => {
+    data.genres = data.genres.map(e=> e.name).join(", ")
     modalBodyEl.innerHTML = modalMarkup(data);
+    console.log(data)
   });
 }

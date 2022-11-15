@@ -48,19 +48,20 @@
   margin-left: auto;
   margin-right: auto;
   padding: 48px 20px 40px 20px;
-  transform: translate(-50%, -86%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+
   @include tablet-screen {
     display: flex;
     max-width: 704px;
     padding: 40px 72px 40px 36px;
-    transform: translate(-50%, -112%) scale(1);
+
   }
 
   @include desktop-screen {
     display: flex;
     max-width: 806px;
     padding: 40px 12px;
-    transform: translate(-50%, -120%) scale(1);
+   
   }
 }
 .modal__film-title {
