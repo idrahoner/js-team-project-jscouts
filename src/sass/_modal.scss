@@ -4,7 +4,7 @@
   left: 0;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 
   opacity: 1;
@@ -20,8 +20,8 @@
 
 .modal__btn-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1%;
+  right: 1%;
 
   width: 30px;
   height: 30px;
@@ -35,8 +35,11 @@
 
 .modal {
   position: absolute;
-  top: 25%;
-  left: 25%;
+  top: 50%;
+  left: 50%;
+
+  max-width: 280px;
+  width: 100%;
   background-color: white;
   color: #000000;
   font-weight: 500;
@@ -44,20 +47,21 @@
   line-height: 1.3;
   margin-left: auto;
   margin-right: auto;
-  max-width: 280px;
-  width: 100%;
   padding: 48px 20px 40px 20px;
+  transform: translate(-50%, -50%) scale(1);
 
   @include tablet-screen {
     display: flex;
     max-width: 704px;
     padding: 40px 72px 40px 36px;
+
   }
 
   @include desktop-screen {
     display: flex;
     max-width: 806px;
     padding: 40px 12px;
+   
   }
 }
 .modal__film-title {
@@ -95,7 +99,7 @@
   width: 48%;
 
   @include tablet-screen {
-    width: 86%;
+    width: 60%;
   }
 }
 
@@ -108,6 +112,7 @@
 .modal__film-describe {
   margin-top: 8px;
   line-height: 1.7;
+
 }
 
 .modal__btn {
@@ -154,7 +159,7 @@
   border: 1px solid #000000;
 
   @include tablet-screen {
-    width: 125px;
+    max-width: 125px;
     padding: 14px 7px;
   }
 
@@ -172,12 +177,44 @@
 
 .modal__films {
   @include tablet-screen {
+    width: 40%;
+  }
+
+  @include desktop-screen {
     width: 50%;
   }
 }
 
 .modal___img-movie {
+
+  @include tablet-screen {
+    width: 264px;
+    height: 373px;
+  }
+
   @include desktop-screen {
     width: 95%;
+    height: 478px;
   }
+}
+
+.modal__body {
+  @include tablet-screen {
+    display: flex;
+    justify-content: space-around;
+  }
+
+}
+
+.modal__info-vote {
+  background: #ff6b01;
+  color: white;
+  border-radius: 5px;
+  padding: 1px 9px;
+}
+
+.modal__info-votes{
+  background: #F7F7F7;
+  border-radius: 5px;
+  padding: 1px 4px;
 }

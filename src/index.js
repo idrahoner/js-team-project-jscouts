@@ -4,7 +4,7 @@ import { LocalStorageAPI } from './js/utils/local-storage-api';
 import { API } from './js/utils/api';
 
 const WATCHED_MOVIE_KEY = 'wathcedMovieList';
-const QUEUE_MOVIE_KEY = 'queueMovieList';
+export const QUEUE_MOVIE_KEY = 'queueMovieList';
 
 const watchedMovieStore = new LocalStorageAPI(WATCHED_MOVIE_KEY);
 const queueMovieStore = new LocalStorageAPI(QUEUE_MOVIE_KEY);

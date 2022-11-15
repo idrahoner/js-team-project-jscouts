@@ -3,7 +3,7 @@
   <div class="modal__img">
       <img
         class="modal___img-movie"
-        src='https://image.tmdb.org/t/p/w500{{this.backdrop_path}}'
+        src='https://image.tmdb.org/t/p/w500{{this.poster_path}}'
         alt="Poster of movie"
         loading="lazy"
       />
@@ -13,7 +13,8 @@
       <ul class="modal__list">
         <li class="modal__item">
           <p class="modal__category">Vote/Votes</p>
-          <p class="modal__info">{{this.vote_average}}/ {{this.vote_count}}</p>
+          <p class="modal__info"> <span class="modal__info-vote">{{this.vote_average}}</span> / <span class="modal__info-votes"> {{this.vote_count}}</span></p>
+
         </li>
         <li class="modal__item">
           <p class="modal__category">Popularity</p>
@@ -25,7 +26,7 @@
         </li>
         <li class="modal__item">
           <p class="modal__category">Genre</p>
-          <p class="modal__info">{{this.genre_ids}}</p>
+          <p class="modal__info">{{this.genres}}</p>
         </li>
       </ul>
       <div class="modal__film-info">
