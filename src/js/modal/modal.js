@@ -32,6 +32,5 @@ export function showMovieDetails(movieId) {
   getDetails.getMovieById(movieId).then(data => {
     data.genres = data.genres.map(e=> e.name).join(", ")
     modalBodyEl.innerHTML = modalMarkup(data);
-    console.log(data)
   });
 }
