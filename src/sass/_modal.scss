@@ -32,8 +32,10 @@
 
   @include tablet-screen {
     margin-top: 0;
+  }
 
-
+  @include desktop-screen {
+    font-size: 30px;
   }
 
 }
@@ -44,10 +46,6 @@
   gap: 8px;
   list-style: none;
   margin-top: 20px;
-
-  @include tablet-screen {
-  flex-direction: row;
-  }
 }
 
 .modal__item {
@@ -56,11 +54,15 @@
 
 .modal__category {
   color: #8C8C8C;
+  width: 48%;
 }
+.modal__info {
+  width: 48%;
 
-// .modal__info {
-//   display: flex;
-// }
+  @include tablet-screen {
+    width: 86%;
+  }
+}
 
 .modal__film{
   font-size: inherit;
@@ -81,9 +83,8 @@
 
   @include tablet-screen {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 14px;
-
   }
 
 }
@@ -104,6 +105,11 @@
     padding: 14px 9px;
 
   }
+
+  @include desktop-screen {
+    width: 136px;
+    padding: 14px 10px;
+  }
 }
 
 .modal__btn-queue {
@@ -119,6 +125,34 @@
     width: 125px;
     padding: 14px 7px;
 
+
+  }
+
+  @include desktop-screen {
+    width: 136px;
+    padding: 14px 8px;
   }
 }
+
+.modal__img {
+  @include tablet-screen {
+    width: 50%;
+  }
+
+}
+
+.modal__films {
+  @include tablet-screen {
+    width: 50%;
+  }
+
+}
+
+
+.modal___img-movie{
+  @include desktop-screen {
+    width: 95%;
+  }
+}
+
 
