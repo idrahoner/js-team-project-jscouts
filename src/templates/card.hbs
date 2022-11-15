@@ -1,13 +1,17 @@
 {{#each this}}
+  <li class='templates-film' data-id='{{id}}'>
+    <img
+      class='templates-film__img'
+      src='https://image.tmdb.org/t/p/w500{{poster_path}}'
+      alt='{{original_title}}'
+    />
+    <div class='templates-film__description'>
+      <h3 class='templates-film__main-text'>{{original_title}}</h3>
+      <div class='templates-film-flex'>
+        <p class='templates-film__text'></p>
+        <p class='templates-film__rating'>{{vote_average}}</p>
+      </div>
 
-<li class="templates-film">
-    <img class="templates-film__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}">
-    <div class="templates-film__description">
-        <h3 class="templates-film__main-text">{{original_title}}</h3>
-        <div class="templates-film-flex">
-          <p class="templates-film__text"></p>
-          <p class="templates-film__rating">{{vote_average}}</p>
-        </div>
     </div>
-</li>
+  </li>
 {{/each}}

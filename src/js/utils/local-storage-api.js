@@ -11,20 +11,18 @@ export class LocalStorageAPI {
       console.log(error);
     }
   }
+
   setItems(array) {
     localStorage.setItem(this.#key, JSON.stringify(array));
   }
 
   saveObject(object) {
-    // console.log('this.getItems(): ', this.getItems());
     if (!this.getItems()) {
       localStorage.setItem(this.#key, JSON.stringify([object]));
       return;
     }
     const newValue = this.getItems();
-    // console.log('newValue: ', newValue);
     newValue.push(object);
-    // console.log('the newValue: ', newValue);
     this.setItems(newValue);
   }
 
