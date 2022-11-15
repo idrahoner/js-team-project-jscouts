@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__wrapper">
+      <div class="logo">
+        <svg width="24" height="24">
+          <use href="./images/symbol-defs.svg#icon-film"></use>
+        </svg>
+        <p class="logo__text">Filmoteka</p>
+      </div>
+      <ul class="header__nav js-nav-btn-list">
+        <li class="header__nav__item">
+          <button class="header__nav__btn js-home-btn" type="button">
+            home
+          </button>
+        </li>
+        <li class="header__nav__item">
+          <button class="header__nav__btn js-library-btn" type="button">
+            my library
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <form class="search-form js-search-form">
+      <div class="search-form__wrapper">
+        <input
+          class="search-form__input"
+          type="text"
+          name="search"
+          placeholder="Movie search"
+        />
+        <button class="search-form__btn" type="submit">
+          <svg width="12" height="12">
+            <use href="./images/symbol-defs.svg#icon-search-2"></use>
+          </svg>
+        </button>
+      </div>
+    </form>
+    <div
+      class="header__option__btn-list js-header__option__btn-list hidden-in-header"
+    >
+      <button class="header__option__btn" type="button">watched</button>
+      <button class="header__option__btn" type="button">queue</button>
+    </div>
+  </div>
+</header>
