@@ -1,8 +1,9 @@
 import { API } from '../utils/api';
 import card from '../../templates/card.hbs';
+import { showMovieDetails } from '../modal/modal';
 
 const galleryEl = document.querySelector('.gallery');
-const apiPopular = new API();
+const movieApi = new API();
 
 // export function initLoad() {
 //   apiPopular.getPopularMovies().then(({ results }) => {
@@ -27,6 +28,18 @@ const apiPopular = new API();
 //       .catch(console.log);
 //   });
 // }
+
+galleryEl.addEventListener('click', onCardClick);
+
+function onCardClick(event) {
+  if (event.currentTarget === event.target) {
+    return;
+  }
+  const galleryItemEl = event.target.closest('.templates-film');
+  const movieId = galleryItemEl.dataset.id;
+
+  showMovieDetails(movieId);
+}
 
 export function renderGallery(array) {
   galleryEl.innerHTML = card(array);

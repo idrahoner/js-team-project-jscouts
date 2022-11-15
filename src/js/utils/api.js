@@ -9,7 +9,6 @@ export class API {
     this.#key = '4482c6f70dd5d76d520552b0779b25da';
     this.page = 1;
     this.query = '';
-
   }
 
   getPopularMovies() {
@@ -28,7 +27,7 @@ export class API {
 
   searchMovie() {
     return axios(
-      `${this.#url}/search/multi?api_key=${this.#key}&query=${
+      `${this.#url}/search/movie?api_key=${this.#key}&query=${
         this.query
       }&page=${this.page}`
     ).then(({ data }) => data);
