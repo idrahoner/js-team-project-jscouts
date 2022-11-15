@@ -1,18 +1,3 @@
-.container {
-  padding-bottom: 40px;
-  padding-top: 20px;
-
-  @include tablet-screen {
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
-
-  @include desktop-screen {
-    padding-bottom: 60px;
-    padding-top: 60px;
-  }
-}
-
 .gallery {
   height: 100%;
   display: grid;
@@ -20,15 +5,24 @@
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 
+  padding-bottom: 40px;
+  padding-top: 20px;
+
   @include tablet-screen {
     grid-column-gap: 32px;
     grid-row-gap: 32px;
     grid-template-columns: repeat(2, auto);
+
+    padding-bottom: 60px;
+    padding-top: 60px;
   }
   @include desktop-screen {
     grid-column-gap: 32px;
     grid-row-gap: 32px;
     grid-template-columns: repeat(3, auto);
+
+    padding-bottom: 60px;
+    padding-top: 60px;
   }
 }
 .gallery__item {
