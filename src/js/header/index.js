@@ -1,4 +1,5 @@
 import { API } from '../utils/api';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const header = document.querySelector('.header');
 export const headerWrapper = document.querySelector('.header__wrapper');
@@ -33,9 +34,18 @@ const obj = new API();
 searchForm.addEventListener('submit', handleSubmit);
 export function handleSubmit(event) {
   event.preventDefault();
-  const inputValue = event.currentTarget.search.value;
+  const inputValue = event.currentTarget.search.value.trim().toLowerCase();
+  if (inputValue === '') {
+    Notify.info('Please, type movie name');
+    return;
+  }
   obj.setQuery(inputValue);
-  obj.searchMovie();
+  obj.searchMovie().then(data => {
+    if (data.results.length === 0) {
+      Notify.failure('No such movie');
+    }
+  });
+  event.currentTarget.reset();
 }
 
 headerWrapper.addEventListener('click', handleDirectToMain);

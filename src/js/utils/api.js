@@ -34,7 +34,9 @@ export class API {
   }
 
   getGenreList() {
-    return axios(`${this.#url}/genre/movie/list?api_key=${this.#key}`).then(({data}) => data.genres);
+    return axios(`${this.#url}/genre/movie/list?api_key=${this.#key}`).then(
+      ({ data }) => data.genres
+    );
   }
 
   increasePage() {
