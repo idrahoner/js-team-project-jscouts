@@ -1,8 +1,12 @@
 import Pagination from 'tui-pagination';
+import { renderGallery } from '../gallery';
+import { API } from '../utils/api';
+
+const movieApi = new API();
 
 const PER_PAGE = 20;
 
-const container = document.getElementById('pagination');
+const containerEl = document.getElementById('pagination');
 const options = {
   totalItems: 10000,
   itemsPerPage: PER_PAGE,
@@ -29,4 +33,20 @@ const options = {
       '</a>',
   },
 };
-const pagination = new Pagination(container, options);
+
+export async function showGallery(response) {
+  const responseOptions = {
+    totalItems: response.total_results,
+  };
+  const pagination = new Pagination(containerEl, {
+    ...options,
+    ...responseOptions,
+  });
+  pagination.on('beforeMove', function () {
+    movieApi.increasePage();
+    movieApi.getPopularMovies().then(({ results }) => renderGallery(results));
+  });
+
+  console.log(response);
+  await renderGallery(response.results);
+}

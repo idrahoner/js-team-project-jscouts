@@ -12,7 +12,10 @@ const queueMovieStore = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 // Приклад роботи галереї:
 
 import { renderGallery } from './js/gallery';
+import { showGallery } from './js/pagination/pagination';
 
 const movieApi = new API();
 
-movieApi.getPopularMovies().then(({ results }) => renderGallery(results));
+movieApi.getPopularMovies().then(data => showGallery(data));
+
+// Робота з пагінацією:
