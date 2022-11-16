@@ -2,7 +2,7 @@ import * as hesderJS from './js/header/index';
 
 import { LocalStorageAPI } from './js/utils/local-storage-api';
 import { API } from './js/utils/api';
-
+import './js/pagination/pagination';
 const WATCHED_MOVIE_KEY = 'wathcedMovieList';
 export const QUEUE_MOVIE_KEY = 'queueMovieList';
 
