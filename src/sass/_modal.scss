@@ -55,14 +55,12 @@
     display: flex;
     max-width: 704px;
     padding: 40px 72px 40px 36px;
-
   }
 
   @include desktop-screen {
     display: flex;
     max-width: 806px;
     padding: 40px 12px;
-
   }
 }
 .modal__film-title {
@@ -113,7 +111,6 @@
 .modal__film-describe {
   margin-top: 8px;
   line-height: 1.7;
-
 }
 
 .modal__btn {
@@ -149,6 +146,13 @@
     width: 136px;
     padding: 14px 10px;
   }
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0px);
+  }
 }
 
 .modal__btn-queue {
@@ -170,6 +174,13 @@
     width: 136px;
     padding: 14px 8px;
   }
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0px);
+  }
 }
 
 .modal__img {
@@ -189,7 +200,6 @@
 }
 
 .modal___img-movie {
-
   @include tablet-screen {
     width: 264px;
     height: 373px;
@@ -206,7 +216,6 @@
     display: flex;
     justify-content: space-around;
   }
-
 }
 
 .modal__info-vote {
@@ -216,8 +225,8 @@
   padding: 1px 9px;
 }
 
-.modal__info-votes{
-  background: #F7F7F7;
+.modal__info-votes {
+  background: #f7f7f7;
   border-radius: 5px;
   padding: 1px 4px;
 }

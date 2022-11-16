@@ -1,7 +1,7 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import card from '../../templates/card.hbs';
-import { renderGallery } from '../gallery';
+import { renderGallery, renderLibraryGallery } from '../gallery';
 import {
   QUEUE_MOVIE_KEY,
   WATCHED_MOVIE_KEY,
@@ -89,12 +89,15 @@ console.log(LSAPI.getItems());
 libraryBtn.addEventListener('click', handleDirectToLibrary);
 function handleDirectToLibrary() {
   const myLibraryItems = LSAPI.getItems();
+
   if (myLibraryItems === null) {
     Notify.info('Your queue list is empty');
     gallery.innerHTML = '';
     return;
   }
-  renderGallery(myLibraryItems);
+  // test
+  renderLibraryGallery(myLibraryItems);
+  //   renderGallery(myLibraryItems);
 }
 // watched and queue features
 const LSWatched = new LocalStorageAPI(WATCHED_MOVIE_KEY);
@@ -112,24 +115,30 @@ export function handleLibOptionsChange(event) {
   });
   if (event.target.classList.contains('js-watched-btn')) {
     const myWatchedItems = LSWatched.getItems();
+    console.log('my console', myWatchedItems);
     if (myWatchedItems === null) {
       Notify.info('Your watched list is empty');
       gallery.innerHTML = '';
       return;
     }
     console.log(myWatchedItems);
-    renderGallery(myWatchedItems);
+    // test
+    renderLibraryGallery(myWatchedItems);
+    // renderGallery(myWatchedItems);
     return;
   }
   if (event.target.classList.contains('js-queue-btn')) {
     const myQueuedItems = LSQueue.getItems();
+    console.log('my console', myQueuedItems);
     if (myQueuedItems === null) {
       Notify.info('Your queue list is empty');
       gallery.innerHTML = '';
       return;
     }
     console.log(myQueuedItems);
-    renderGallery(myQueuedItems);
+    // test
+    renderLibraryGallery(myQueuedItems);
+    // renderGallery(myQueuedItems);
   }
 }
 console.log(localStorage.getItem(WATCHED_MOVIE_KEY));

@@ -67,3 +67,7 @@ async function prepareToRender(array) {
     movie.release_date = releaseDade[0];
   }
 }
+
+export function renderLibraryGallery(array) {
+  galleryEl.innerHTML = card(array);
+}
