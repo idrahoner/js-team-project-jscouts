@@ -198,11 +198,10 @@
   min-width: 130px;
   border-radius: 5px;
   cursor: pointer;
-  &:first-child {
-    background-color: transparent;
-    border: #fff 1px solid;
-  }
-  &:nth-child(2) {
+  background-color: transparent;
+  border: #fff 1px solid;
+
+  &--active {
     background-color: #ff6b01;
     border: #ff6b01 1px solid;
   }
