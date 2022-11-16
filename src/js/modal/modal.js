@@ -1,7 +1,10 @@
 import { API } from '../utils/api';
 import modalMarkup from '../../templates/modal.hbs';
+import {LocalStorageAPI, QUEUE_MOVIE_KEY, WATCHED_MOVIE_KEY } from '../utils/local-storage-api'
 
 const getDetails = new API();
+const addWatchedMovie = new LocalStorageAPI(WATCHED_MOVIE_KEY);
+const addQueueMovie = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
@@ -34,10 +37,26 @@ function onEscKeydown(e) {
   }
 }
 
-export function showMovieDetails(movieId) {
+export async function showMovieDetails(movieId) {
   onOpenModal();
-  getDetails.getMovieById(movieId).then(data => {
-    data.genres = data.genres.map(e=> e.name).join(", ")
-    modalBodyEl.innerHTML = modalMarkup(data);
-  });
+ const movieData = await getDetails.getMovieById(movieId)
+ movieData.genres = movieData.genres.map(e=> e.name).join(", ")
+ modalBodyEl.innerHTML = modalMarkup(movieData);
+
+  const modalBtnWatchedMovie = document.querySelector('.modal__btn-watched');
+  const modalBtnQueueMovie = document.querySelector('.modal__btn-queue');
+
+  modalBtnWatchedMovie.addEventListener('click', onAddWatchedMovie);
+  modalBtnQueueMovie.addEventListener('click', onAddQueueMovie);
+
+
+  function onAddWatchedMovie(e) {
+    addWatchedMovie.saveObject(movieData)
+  };
+
+  function  onAddQueueMovie(e) {
+    addQueueMovie.saveObject(movieData)
+
+  };
+
 }
