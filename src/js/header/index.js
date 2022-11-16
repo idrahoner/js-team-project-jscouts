@@ -11,6 +11,7 @@ import {
 export const libOptionBtns = document.querySelectorAll('.header__option__btn');
 // export const watchedBtn = document.querySelector('.js-watched-btn');
 // export const queueBtn = document.querySelector('.js-queue-btn');
+export const pagination = document.querySelector('.pagination-container');
 export const gallery = document.querySelector('.gallery');
 export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
@@ -33,6 +34,7 @@ export function handlePageChange(event) {
   if (!event.target.closest('li').classList.contains('remove-bar')) {
     return;
   }
+  pagination.classList.toggle('pagination-remove');
   header.classList.toggle('header-lib-bkg');
   homeNavItem.classList.toggle('remove-bar');
   libNavItem.classList.toggle('remove-bar');
