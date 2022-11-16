@@ -41,6 +41,29 @@ function onCardClick(event) {
   showMovieDetails(movieId);
 }
 
-export function renderGallery(array) {
+export async function renderGallery(array) {
+  await prepareToRender(array);
+
   galleryEl.innerHTML = card(array);
+  console.log('array: ', array);
+}
+
+function nameGenres(id, genresArray) {
+  for (let genre of genresArray) {
+    if (genre.id === id) {
+      return genre.name;
+    }
+  }
+}
+
+async function prepareToRender(array) {
+  const genresArray = await movieApi.getGenreList();
+  for (let movie of array) {
+    for (let i = 0; i < movie.genre_ids.length; i += 1) {
+      movie.genre_ids[i] = nameGenres(movie.genre_ids[i], genresArray);
+    }
+    movie.genre_ids = movie.genre_ids.join(', ');
+    const releaseDade = movie.release_date.split('-');
+    movie.release_date = releaseDade[0];
+  }
 }
