@@ -1,5 +1,6 @@
 import * as hesderJS from './js/header/index';
 import * as darkmode from './js/darkmode/darkmode';
+import * as scrollToTop from './js/scroll-to-top/scroll-to-top';
 import { LocalStorageAPI } from './js/utils/local-storage-api';
 import { API } from './js/utils/api';
 import './js/pagination/pagination';
