@@ -41,7 +41,7 @@ export class LocalStorageAPI {
 }
 
 // library page render developement.dont remove yet please
-const WATCHED_MOVIE_KEY = 'wathcedMovieList';
+export const WATCHED_MOVIE_KEY = 'wathcedMovieList';
 export const QUEUE_MOVIE_KEY = 'queueMovieList';
 
 const watchedMovieStore = new LocalStorageAPI(WATCHED_MOVIE_KEY);
