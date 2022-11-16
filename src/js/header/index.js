@@ -60,10 +60,7 @@ export function handleSubmit(event) {
         Notify.failure('No such movie');
         return;
       }
-      // developement. will remove
 
-      localStorage.setItem(QUEUE_MOVIE_KEY, JSON.stringify(results));
-      //
       return renderGallery(results);
     })
     .catch(console.log)
