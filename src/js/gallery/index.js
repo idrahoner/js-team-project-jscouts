@@ -33,6 +33,10 @@ const movieApi = new API();
 galleryEl.addEventListener('click', onCardClick);
 
 function onCardClick(event) {
+  if (event.target.nodeName === 'BUTTON') {
+    return;
+  }
+
   if (event.currentTarget === event.target) {
     return;
   }
