@@ -151,12 +151,7 @@
   }
 }
 
-.modal__btn-on {
-  cursor: pointer;
-  color: #FFFFFF;
-  background-color: #FF6B01;
-  border: transparent;
-}
+
 
 .modal__btn-queue {
   display: block;
@@ -178,6 +173,13 @@
     width: 136px;
     padding: 14px 8px;
   }
+}
+
+.modal__btn-on {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #FF6B01;
+  border: transparent;
 }
 
 

@@ -4,8 +4,8 @@ import modalMarkup from '../../templates/modal.hbs';
 import {LocalStorageAPI, QUEUE_MOVIE_KEY, WATCHED_MOVIE_KEY } from '../utils/local-storage-api'
 
 const getDetails = new API();
-const addWatchedMovie = new LocalStorageAPI(WATCHED_MOVIE_KEY);
-const addQueueMovie = new LocalStorageAPI(QUEUE_MOVIE_KEY);
+const watchedMovieLocalStorage = new LocalStorageAPI(WATCHED_MOVIE_KEY);
+const queueMovieLocalStorage = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
@@ -44,14 +44,7 @@ export async function showMovieDetails(movieId) {
  movieData.genres = movieData.genres.map(e=> e.name).join(", ")
  modalBodyEl.innerHTML = modalMarkup(movieData);
 
-
-//  if(addQueueMovie.getItems().find(el => el.id === movieId)) {
-
-//   modalBtnQueueMovie.disabled = true;
-//   Notiflix.Notify.info('This movie has been added')
-//  }
-
-//  movieData.find(el =>  )
+ 
 
   const modalBtnWatchedMovie = document.querySelector('.modal__btn-watched');
   const modalBtnQueueMovie = document.querySelector('.modal__btn-queue');
@@ -61,28 +54,34 @@ export async function showMovieDetails(movieId) {
 
 
   function onAddWatchedMovie(e) {
-    addWatchedMovie.saveObject(movieData)
+    prepareButtonContent(watchedMovieLocalStorage,modalBtnWatchedMovie, movieData)
+}
 
-    if(addWatchedMovie.getItems(movieId)) {
-      modalBtnWatchedMovie.disabled = true;
-      document.querySelector('.modal__btn-watched').textContent = "Added watched";
-      document.querySelector('.modal__btn-watched').style.backgroundColor = " #FF6B01"
-      document.querySelector('.modal__btn-watched').style.color = "white"
-      document.querySelector('.modal__btn-watched').style.border= "transparent"
-     }
-  };
+function onAddQueueMovie(e) {
+  prepareButtonContent(queueMovieLocalStorage,modalBtnQueueMovie, movieData)
 
+}
 
-  function onAddQueueMovie(e) {
-    addQueueMovie.saveObject(movieData)
+}
 
-    if(addQueueMovie.getItems(movieId)) {
-      modalBtnQueueMovie.disabled = true;
-      document.querySelector('.modal__btn-queue').textContent = "Added to queue"
-      document.querySelector('.modal__btn-queue').style.backgroundColor = " #FF6B01"
-      document.querySelector('.modal__btn-queue').style.color = "white"
-      document.querySelector('.modal__btn-queue').style.border= "transparent"
-     }
-  }
+function prepareButtonContent(localStorage, buttonEl,movieData){
 
+  if(!localStorage.getItems()) {
+    localStorage.saveObject(movieData)
+    buttonEl.textContent = "Remove";
+    buttonEl.classList.add('modal__btn-on')
+   }
+   else{
+    if(!localStorage.findItem(movieData.id)){
+      localStorage.saveObject(movieData)
+        buttonEl.textContent = "Remove";
+        buttonEl.classList.add('modal__btn-on')
+    }
+    else{
+      localStorage.removeItem(movieData.id)
+      buttonEl.textContent = "Add to Watched";
+      buttonEl.classList.remove('modal__btn-on')
+   }
+
+}
 }
