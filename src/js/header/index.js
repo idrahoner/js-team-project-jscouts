@@ -1,9 +1,17 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import card from '../../templates/card.hbs';
-import { renderGallery } from '../gallery';
-import { QUEUE_MOVIE_KEY, LocalStorageAPI } from '../utils/local-storage-api';
+import { renderGallery, renderLibraryGallery } from '../gallery';
+import {
+  QUEUE_MOVIE_KEY,
+  WATCHED_MOVIE_KEY,
+  LocalStorageAPI,
+} from '../utils/local-storage-api';
 
+export const libOptionBtns = document.querySelectorAll('.header__option__btn');
+// export const watchedBtn = document.querySelector('.js-watched-btn');
+// export const queueBtn = document.querySelector('.js-queue-btn');
+export const pagination = document.querySelector('.pagination-container');
 export const gallery = document.querySelector('.gallery');
 export const loader = document.querySelector('.loader');
 export const header = document.querySelector('.header');
@@ -26,6 +34,7 @@ export function handlePageChange(event) {
   if (!event.target.closest('li').classList.contains('remove-bar')) {
     return;
   }
+  pagination.classList.toggle('pagination-remove');
   header.classList.toggle('header-lib-bkg');
   homeNavItem.classList.toggle('remove-bar');
   libNavItem.classList.toggle('remove-bar');
@@ -53,10 +62,7 @@ export function handleSubmit(event) {
         Notify.failure('No such movie');
         return;
       }
-      // developement. will remove
 
-      localStorage.setItem(QUEUE_MOVIE_KEY, JSON.stringify(results));
-      //
       return renderGallery(results);
     })
     .catch(console.log)
@@ -85,5 +91,56 @@ console.log(LSAPI.getItems());
 libraryBtn.addEventListener('click', handleDirectToLibrary);
 function handleDirectToLibrary() {
   const myLibraryItems = LSAPI.getItems();
-  renderGallery(myLibraryItems);
+
+  if (myLibraryItems === null) {
+    Notify.info('Your queue list is empty');
+    gallery.innerHTML = '';
+    return;
+  }
+  // test
+  renderLibraryGallery(myLibraryItems);
+  //   renderGallery(myLibraryItems);
 }
+// watched and queue features
+const LSWatched = new LocalStorageAPI(WATCHED_MOVIE_KEY);
+const LSQueue = new LocalStorageAPI(QUEUE_MOVIE_KEY);
+optionBtnList.addEventListener('click', handleLibOptionsChange);
+export function handleLibOptionsChange(event) {
+  if (
+    event.target.nodeName !== 'BUTTON' ||
+    event.target.classList.contains('header__option__btn--active')
+  ) {
+    return;
+  }
+  libOptionBtns.forEach(btn => {
+    btn.classList.toggle('header__option__btn--active');
+  });
+  if (event.target.classList.contains('js-watched-btn')) {
+    const myWatchedItems = LSWatched.getItems();
+    console.log('my console', myWatchedItems);
+    if (myWatchedItems === null) {
+      Notify.info('Your watched list is empty');
+      gallery.innerHTML = '';
+      return;
+    }
+    console.log(myWatchedItems);
+    // test
+    renderLibraryGallery(myWatchedItems);
+    // renderGallery(myWatchedItems);
+    return;
+  }
+  if (event.target.classList.contains('js-queue-btn')) {
+    const myQueuedItems = LSQueue.getItems();
+    console.log('my console', myQueuedItems);
+    if (myQueuedItems === null) {
+      Notify.info('Your queue list is empty');
+      gallery.innerHTML = '';
+      return;
+    }
+    console.log(myQueuedItems);
+    // test
+    renderLibraryGallery(myQueuedItems);
+    // renderGallery(myQueuedItems);
+  }
+}
+console.log(localStorage.getItem(WATCHED_MOVIE_KEY));

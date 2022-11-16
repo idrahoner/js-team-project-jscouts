@@ -146,6 +146,13 @@
   right: 0;
   padding: 0;
   cursor: pointer;
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0px);
+  }
 }
 
 .search-form {
@@ -198,11 +205,16 @@
   min-width: 130px;
   border-radius: 5px;
   cursor: pointer;
-  &:first-child {
-    background-color: transparent;
-    border: #fff 1px solid;
+  background-color: transparent;
+  border: #fff 1px solid;
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
   }
-  &:nth-child(2) {
+  &:active {
+    transform: translateY(0px);
+  }
+  &--active {
     background-color: #ff6b01;
     border: #ff6b01 1px solid;
   }
@@ -236,4 +248,7 @@ input:-webkit-autofill:focus {
 }
 input[data-autocompleted] {
   background-color: transparent !important;
+}
+.pagination-remove {
+  display: none;
 }
