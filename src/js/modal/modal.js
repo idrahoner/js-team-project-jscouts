@@ -8,6 +8,7 @@ const backdropEl = document.querySelector('[data-modal]');
 const modalBodyEl = document.querySelector('.modal__body');
 
 
+backdropEl.addEventListener('click', onBackdropClick)
 
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeydown);
@@ -18,6 +19,12 @@ function onOpenModal() {
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeydown);
   backdropEl.classList.add('is-hidden');
+}
+
+function onBackdropClick(e) {
+  if(e.currentTarget === e.target) {
+    onCloseModal()
+  }
 }
 
 function onEscKeydown(e) {
