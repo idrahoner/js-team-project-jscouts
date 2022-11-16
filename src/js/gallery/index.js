@@ -1,6 +1,7 @@
 import { API } from '../utils/api';
 import card from '../../templates/card.hbs';
 import { showMovieDetails } from '../modal/modal';
+import cardForLibrary from '../../templates/card-for-library.hbs';
 
 const galleryEl = document.querySelector('.gallery');
 const movieApi = new API();
@@ -69,5 +70,5 @@ async function prepareToRender(array) {
 }
 
 export function renderLibraryGallery(array) {
-  galleryEl.innerHTML = card(array);
+  galleryEl.innerHTML = cardForLibrary(array);
 }
