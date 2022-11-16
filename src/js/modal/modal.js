@@ -25,9 +25,6 @@ function onBackdropClick(e) {
   if(e.currentTarget === e.target) {
     onCloseModal()
   }
-
-  console.log(e.currentTarget)
-  console.log(e.target)
 }
 
 function onEscKeydown(e) {
