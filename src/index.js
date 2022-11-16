@@ -1,5 +1,5 @@
 import * as hesderJS from './js/header/index';
-
+import * as darkmode from './js/darkmode/darkmode';
 import { LocalStorageAPI } from './js/utils/local-storage-api';
 import { API } from './js/utils/api';
 import './js/pagination/pagination';
