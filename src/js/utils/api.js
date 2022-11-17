@@ -15,21 +15,23 @@ export class API {
     return axios(
       `${this.#url}/discover/movie?sort_by=popularity.desc&api_key=${
         this.#key
-      }&page=${this.page}`
+      }&page=${this.page}&language=en-US&include_adult=false`
     ).then(({ data }) => data);
   }
 
   getMovieById(id) {
-    return axios(`${this.#url}/movie/${id}?api_key=${this.#key}`).then(
-      ({ data }) => data
-    );
+    return axios(
+      `${this.#url}/movie/${id}?api_key=${
+        this.#key
+      }&language=en-US&include_adult=false`
+    ).then(({ data }) => data);
   }
 
   searchMovie() {
     return axios(
       `${this.#url}/search/movie?api_key=${this.#key}&query=${
         this.query
-      }&page=${this.page}`
+      }&page=${this.page}&language=en-US&include_adult=false`
     ).then(({ data }) => data);
   }
 
