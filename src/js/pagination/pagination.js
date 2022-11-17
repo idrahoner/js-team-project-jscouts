@@ -40,10 +40,10 @@ export async function showGallery(response) {
   };
   const pagination = new Pagination(containerEl, {
     ...options,
-    ...responseOptions,
   });
-  pagination.on('beforeMove', function () {
-    movieApi.increasePage();
+  pagination.on('beforeMove', function (eventData) {
+    movieApi.setPage(eventData.page);
+
     movieApi.getPopularMovies().then(({ results }) => renderGallery(results));
   });
 
