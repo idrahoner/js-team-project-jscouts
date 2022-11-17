@@ -2,7 +2,8 @@
   display: none;
 }
 figure {
-  position: absolute;
+  z-index: 1;
+  position: fixed;
   margin: auto;
   top: 0;
   bottom: 0;

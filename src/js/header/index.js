@@ -1,6 +1,5 @@
 import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import card from '../../templates/card.hbs';
 import { renderGallery, renderLibraryGallery } from '../gallery';
 import {
   QUEUE_MOVIE_KEY,
@@ -8,26 +7,22 @@ import {
   LocalStorageAPI,
 } from '../utils/local-storage-api';
 
-export const libOptionBtns = document.querySelectorAll('.header__option__btn');
-// export const watchedBtn = document.querySelector('.js-watched-btn');
-// export const queueBtn = document.querySelector('.js-queue-btn');
-export const pagination = document.querySelector('.pagination-container');
-export const gallery = document.querySelector('.gallery');
-export const loader = document.querySelector('.loader');
-export const header = document.querySelector('.header');
-export const headerWrapper = document.querySelector('.header__wrapper');
-export const homeNavItem = document.querySelector('.js-home-nav-item');
-export const libNavItem = document.querySelector('.js-lib-nav-item');
-export const homeBtn = document.querySelector('.js-home-btn');
-export const libraryBtn = document.querySelector('.js-library-btn');
-export const navBtnList = document.querySelector('.js-nav-btn-list');
-export const searchForm = document.querySelector('.js-search-form');
-export const optionBtnList = document.querySelector(
-  '.js-header__option__btn-list'
-);
+const libOptionBtns = document.querySelectorAll('.header__option__btn');
+const pagination = document.querySelector('.pagination-container');
+const gallery = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
+const header = document.querySelector('.header');
+const headerWrapper = document.querySelector('.header__wrapper');
+const homeNavItem = document.querySelector('.js-home-nav-item');
+const libNavItem = document.querySelector('.js-lib-nav-item');
+const homeBtn = document.querySelector('.js-home-btn');
+const libraryBtn = document.querySelector('.js-library-btn');
+const navBtnList = document.querySelector('.js-nav-btn-list');
+const searchForm = document.querySelector('.js-search-form');
+const optionBtnList = document.querySelector('.js-header__option__btn-list');
 
 navBtnList.addEventListener('click', handlePageChange);
-export function handlePageChange(event) {
+function handlePageChange(event) {
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
@@ -46,7 +41,7 @@ export function handlePageChange(event) {
 const obj = new API();
 
 searchForm.addEventListener('submit', handleSubmit);
-export function handleSubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
   const inputValue = event.currentTarget.search.value.trim().toLowerCase();
   if (inputValue === '') {
@@ -62,17 +57,15 @@ export function handleSubmit(event) {
         Notify.failure('No such movie');
         return;
       }
-
       return renderGallery(results);
     })
     .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));
-
   event.currentTarget.reset();
 }
 
 headerWrapper.addEventListener('click', handleDirectToMain);
-export function handleDirectToMain(event) {
+function handleDirectToMain(event) {
   if (
     event.target.classList.contains('logo') ||
     event.target.classList.contains('js-home-btn') ||
@@ -84,9 +77,6 @@ export function handleDirectToMain(event) {
 }
 // library render
 const LSAPI = new LocalStorageAPI(QUEUE_MOVIE_KEY);
-console.log(LSAPI.getItems());
-// console.log(LSAPI);
-// console.log(localStorage.getItem(QUEUE_MOVIE_KEY));
 
 libraryBtn.addEventListener('click', handleDirectToLibrary);
 function handleDirectToLibrary() {
@@ -97,15 +87,15 @@ function handleDirectToLibrary() {
     gallery.innerHTML = '';
     return;
   }
-  // test
   renderLibraryGallery(myLibraryItems);
-  //   renderGallery(myLibraryItems);
 }
+
 // watched and queue features
 const LSWatched = new LocalStorageAPI(WATCHED_MOVIE_KEY);
 const LSQueue = new LocalStorageAPI(QUEUE_MOVIE_KEY);
+
 optionBtnList.addEventListener('click', handleLibOptionsChange);
-export function handleLibOptionsChange(event) {
+function handleLibOptionsChange(event) {
   if (
     event.target.nodeName !== 'BUTTON' ||
     event.target.classList.contains('header__option__btn--active')
@@ -117,30 +107,21 @@ export function handleLibOptionsChange(event) {
   });
   if (event.target.classList.contains('js-watched-btn')) {
     const myWatchedItems = LSWatched.getItems();
-    console.log('my console', myWatchedItems);
     if (myWatchedItems === null) {
       Notify.info('Your watched list is empty');
       gallery.innerHTML = '';
       return;
     }
-    console.log(myWatchedItems);
-    // test
     renderLibraryGallery(myWatchedItems);
-    // renderGallery(myWatchedItems);
     return;
   }
   if (event.target.classList.contains('js-queue-btn')) {
     const myQueuedItems = LSQueue.getItems();
-    console.log('my console', myQueuedItems);
     if (myQueuedItems === null) {
       Notify.info('Your queue list is empty');
       gallery.innerHTML = '';
       return;
     }
-    console.log(myQueuedItems);
-    // test
     renderLibraryGallery(myQueuedItems);
-    // renderGallery(myQueuedItems);
   }
 }
-console.log(localStorage.getItem(WATCHED_MOVIE_KEY));
