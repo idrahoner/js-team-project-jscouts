@@ -252,3 +252,15 @@ input[data-autocompleted] {
 .pagination-remove {
   display: none;
 }
+.darkmode-toggle {
+  z-index: 100;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-section{
+  flex: 1;
+}

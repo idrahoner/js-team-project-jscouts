@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const loader = document.querySelector('.loader');
+
 export class API {
   #key;
   #url;
@@ -12,6 +14,7 @@ export class API {
   }
 
   getPopularMovies() {
+    loader.classList.toggle('loader-hidden');
     return axios(
       `${this.#url}/discover/movie?sort_by=popularity.desc&api_key=${
         this.#key
