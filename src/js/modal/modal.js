@@ -54,12 +54,16 @@ export async function showMovieDetails(movieId) {
 
 
   if(watchedMovieLocalStorage.findItem(Number(movieId))) {
-    modalBtnWatchedMovie.textContent = "Remove from library";
+    modalBtnWatchedMovie.textContent = modalBtnWatchedMovie.classList.contains("modal__btn-watched")
+    ? "Remove from Watched"
+    : "Remove from Queue";;
     modalBtnWatchedMovie.classList.add('modal__btn-on')
     }
 
   if(queueMovieLocalStorage.findItem(Number(movieId))) {
-    modalBtnQueueMovie.textContent = "Remove from library";
+    modalBtnQueueMovie.textContent =  modalBtnQueueMovie.classList.contains("modal__btn-watched")
+    ? "Remove from Watched"
+    : "Remove from Queue";;
     modalBtnQueueMovie.classList.add('modal__btn-on')
    }
 
@@ -85,20 +89,26 @@ function prepareButtonContent(localStorage, buttonEl,movieData){
 
   if(!localStorage.getItems()) {
     localStorage.saveObject(movieData)
-    buttonEl.textContent = "Remove from library";
+    buttonEl.textContent = buttonEl.classList.contains("modal__btn-watched")
+    ? "Remove from Watched"
+    : "Remove from Queue";
     buttonEl.classList.add('modal__btn-on')
 
    }
    else{
     if(!localStorage.findItem(movieData.id)){
       localStorage.saveObject(movieData)
-        buttonEl.textContent = "Remove from library";
+        buttonEl.textContent = buttonEl.classList.contains("modal__btn-watched")
+        ? "Remove from Watched"
+        : "Remove from Queue";
         buttonEl.classList.add('modal__btn-on')
         Notiflix.Notify.info('The movie has been added to your library')
     }
     else{
       localStorage.removeItem(movieData.id)
-      buttonEl.textContent = buttonEl.classList.contains("modal__btn-watched")? "Add to Wached":"Add to Queue";
+      buttonEl.textContent = buttonEl.classList.contains("modal__btn-watched")
+      ? "Add to Watched"
+      : "Add to Queue";
       buttonEl.classList.remove('modal__btn-on')
       Notiflix.Notify.info('The movie has been removed from your library')
    }
