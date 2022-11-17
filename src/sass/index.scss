@@ -1,15 +1,4 @@
 @import './common';
 
-@import './vars';
-@import './common';
-@import './header';
-@import './loader';
-@import './scroll-to-top';
-@import './card';
-@import './paggination';
-@import './footer';
-@import './modal';
-@import './movie-details';
-@import './gallery';
-@import './video-trailer';
-@import './modal-footer';
+@import './common/index';
+@import './partials/index';
