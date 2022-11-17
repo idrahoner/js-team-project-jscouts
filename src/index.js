@@ -25,7 +25,7 @@ const loader = document.querySelector('.loader');
     .getPopularMovies()
     .then(data => showGallery(data))
     .catch(console.log)
-    .then(() => loader.classList.toggle('loader-hidden'));
+    .finally(() => loader.classList.toggle('loader-hidden'));
 })();
 
 // Робота з пагінацією:

@@ -67,6 +67,5 @@
 .modal__body {
   @include tablet-screen {
     display: flex;
-    justify-content: space-around;
   }
 }
