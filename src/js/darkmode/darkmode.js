@@ -1,8 +1,8 @@
 import Darkmode from 'darkmode-js';
 export const options = {
   bottom: '32px',
-  right: '32px',
-  left: 'unset',
+  right: 'unset',
+  left: '32px',
   time: '0.3s',
   mixColor: '#fff',
   backgroundColor: '#fff',
