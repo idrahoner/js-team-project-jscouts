@@ -22,26 +22,25 @@
 }
 
 .modal__content {
-  background-color: rgb(245, 235, 235);
+  background-color: #f7f1f1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 260px;
-  height: 520px;
-  padding: 45px 20px;
+  width: 250px;
+  height: 500px;
+  padding: 5px 5px;
   overflow: auto;
   text-align: center;
-  border-radius: 5%;
+  border-radius: 2%;
   @include tablet-screen {
-    padding: 30px 60px;
     width: 700px;
     height: 520px;
     text-align: start;
   }
   @include desktop-screen {
-    width: 900px;
-    height: 600px;
+    width: 800px;
+    height: 705px;
   }
 }
 
@@ -49,8 +48,8 @@
   position: absolute;
   top: 1%;
   right: 1%;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   border: none;
   padding: 0;
   background-color: transparent;
@@ -65,68 +64,101 @@
       transform: scale(1.08);
     }
   }
+  @include tablet-screen {
+    width: 25px;
+    height: 25px;
+  }
+  @include desktop-screen {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .modal__icon {
   fill: currentColor;
 }
-// .container__team {
-// }
-
-// .team {
-// }
 
 .team__title {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 25px;
+  margin-bottom: 5px;
   color: #ff6b08;
-  margin-top: -10px;
+  font-size: 15px;
+  @include tablet-screen {
+    font-size: 20px;
+  }
+  @include desktop-screen {
+    font-size: 25px;
+  }
 }
-
-// .team__developer {
-//   text-align: center;
-// }
 
 .team__text {
   text-align: center;
-  font-size: 25px;
+  font-size: 15px;
   font-weight: 500;
   text-shadow: #9cccec 1px 0 5px;
   margin-bottom: 10px;
+  @include tablet-screen {
+    font-size: 20px;
+  }
+  @include desktop-screen {
+    font-size: 25px;
+  }
 }
 
 .team__list {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-between;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 5px;
+
+  @include tablet-screen {
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    grid-template-columns: repeat(2, auto);
+  }
+  @include desktop-screen {
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    grid-template-columns: repeat(3, auto);
+  }
 }
 
 .team__item {
+  transition-property: transform;
+  transition-duration: 200ms;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 }
 
 .team__photo {
-  border-radius: 50%;
-}
-
-.team__descr {
+  border-radius: 15%;
 }
 
 .team__name {
-  font-weight: 700;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  font-weight: 500;
   text-align: center;
   color: #ff6b08;
+
+  @include tablet-screen {
+    font-weight: 600;
+  }
+  @include desktop-screen {
+    font-weight: 700;
+  }
 }
 
 .team__position {
-  font-weight: 700;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  font-weight: 500;
   text-align: center;
   text-shadow: #9cccec 1px 0 5px;
-}
-
-.developer {
+  @include tablet-screen {
+    font-weight: 600;
+  }
+  @include desktop-screen {
+    font-weight: 700;
+  }
 }
