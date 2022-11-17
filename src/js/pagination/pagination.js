@@ -34,6 +34,8 @@ const options = {
   },
 };
 
+const loader = document.querySelector('.loader');
+
 export async function showGallery(response) {
   const responseOptions = {
     totalItems: response.total_results,
@@ -43,10 +45,11 @@ export async function showGallery(response) {
   });
   pagination.on('beforeMove', function (eventData) {
     movieApi.setPage(eventData.page);
-
-    movieApi.getPopularMovies().then(({ results }) => renderGallery(results));
+    movieApi
+      .getPopularMovies()
+      .then(({ results }) => renderGallery(results))
+      .catch(console.log)
+      .then(() => loader.classList.toggle('loader-hidden'));
   });
-
-  console.log(response);
   await renderGallery(response.results);
 }

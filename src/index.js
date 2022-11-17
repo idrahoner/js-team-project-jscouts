@@ -17,7 +17,14 @@ import { renderGallery } from './js/gallery';
 import { showGallery } from './js/pagination/pagination';
 
 const movieApi = new API();
+const loader = document.querySelector('.loader');
 
-movieApi.getPopularMovies().then(data => showGallery(data));
+(() => {
+  movieApi
+    .getPopularMovies()
+    .then(data => showGallery(data))
+    .catch(console.log)
+    .then(() => loader.classList.toggle('loader-hidden'));
+})();
 
 // Робота з пагінацією:
