@@ -132,9 +132,9 @@
   line-height: 1.2;
   text-transform: uppercase;
   padding: 6px 27px;
-  border: transparent;
-  background: #ff6b01;
-  color: #ffffff;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+
   cursor: pointer;
 
   @include tablet-screen {
@@ -155,6 +155,8 @@
   }
 }
 
+
+
 .modal__btn-queue {
   display: block;
   width: 110px;
@@ -163,6 +165,7 @@
   text-transform: uppercase;
   padding: 13px 13px;
   border: 1px solid #000000;
+  background: #FFFFFF;
   cursor: pointer;
 
   @include tablet-screen {
@@ -182,6 +185,14 @@
     transform: translateY(0px);
   }
 }
+
+.modal__btn-on {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #FF6B01;
+  border: transparent;
+}
+
 
 .modal__img {
   @include tablet-screen {
