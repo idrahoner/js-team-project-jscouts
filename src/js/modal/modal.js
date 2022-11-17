@@ -65,7 +65,6 @@ export async function showMovieDetails(movieId) {
 }
 
 function onAddWatchedMovie(e) {
-  watchedMovieLocalStorage.saveObject(movieData);
   prepareButtonContent(
     watchedMovieLocalStorage,
     modalBtnWatchedMovie,
@@ -74,8 +73,11 @@ function onAddWatchedMovie(e) {
 }
 
 function onAddQueueMovie(e) {
-  queueMovieLocalStorage.saveObject(movieData);
-  prepareButtonContent(queueMovieLocalStorage, modalBtnQueueMovie, movieData);
+  console.log('klick')
+  prepareButtonContent(
+    queueMovieLocalStorage,
+    modalBtnQueueMovie,
+    movieData);
 }
 
 function prepareButtonContent(localStorage, buttonEl, movieData) {
