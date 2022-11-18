@@ -4,11 +4,11 @@ import modalMarkup from '../../templates/modal.hbs';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
-const modalBodyEl = document.querySelector('.modal__body');
+export const modalBodyEl = document.querySelector('.modal__body');
 
 backdropEl.addEventListener('click', onBackdropClick);
 
-function onOpenModal() {
+export function onOpenModal() {
   window.addEventListener('keydown', onEscKeydown);
   backdropEl.classList.remove('is-hidden');
   closeModalBtn.addEventListener('click', onCloseModal);

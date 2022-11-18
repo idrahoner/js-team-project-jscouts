@@ -5,8 +5,6 @@ import * as trailerBtnFeature from './js/trailer-btn/trailer-btn';
 import { movieApi } from './js/utils';
 import './js/pagination/pagination';
 import * as footer from './js/modal/modal-footer';
-const WATCHED_MOVIE_KEY = 'wathcedMovieList';
-export const QUEUE_MOVIE_KEY = 'queueMovieList';
 
 import { showGallery } from './js/gallery';
 

@@ -1,0 +1,23 @@
+{
+  "genres": [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    }
+  ],
+  "id": 436270,
+  "poster_path": "/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+  "release_date": "2022-10-19",
+  "title": "Black Adam",
+  "video": false,
+  "vote_average": 6.9,
+  "vote_count": 1129
+}

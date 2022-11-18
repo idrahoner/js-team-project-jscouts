@@ -44,6 +44,12 @@ export class API {
     );
   }
 
+  getTrailer(id) {
+    return axios(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=4482c6f70dd5d76d520552b0779b25da`
+    ).then(({ data }) => data.results[0].key);
+  }
+
   increasePage() {
     this.page += 1;
   }

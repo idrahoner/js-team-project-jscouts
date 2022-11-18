@@ -39,9 +39,3 @@ export class LocalStorageAPI {
     return this.getItems().some(element => element.id === id);
   }
 }
-
-export const WATCHED_MOVIE_KEY = 'wathcedMovieList';
-export const QUEUE_MOVIE_KEY = 'queueMovieList';
-
-const watchedMovieStore = new LocalStorageAPI(WATCHED_MOVIE_KEY);
-const queueMovieStore = new LocalStorageAPI(QUEUE_MOVIE_KEY);
