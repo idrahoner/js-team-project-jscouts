@@ -11,7 +11,7 @@ const options = {
   itemsPerPage: PER_PAGE,
   visiblePages: 5,
   page: 1,
-  centerAlign: false,
+  centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
@@ -34,14 +34,14 @@ const options = {
 };
 
 const loader = document.querySelector('.loader');
-const pagination = new Pagination(containerEl, options);
+export const pagination = new Pagination(containerEl, options);
 
 export async function showGallery(response) {
   pagination.on('beforeMove', eventData => {
     movieApi.setPage(eventData.page);
     loader.classList.toggle('loader-hidden');
     movieApi
-      .getPopularMovies()
+      .lastRequest()
       .then(({ results }) => renderGallery(results))
       .catch(console.log)
       .then(() => loader.classList.toggle('loader-hidden'));

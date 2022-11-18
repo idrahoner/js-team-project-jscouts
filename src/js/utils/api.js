@@ -9,9 +9,11 @@ export class API {
     this.#key = '4482c6f70dd5d76d520552b0779b25da';
     this.page = 1;
     this.query = '';
+    this.lastRequest = null;
   }
 
   getPopularMovies() {
+    this.lastRequest = this.getPopularMovies;
     return axios(
       `${this.#url}/discover/movie?sort_by=popularity.desc&api_key=${
         this.#key
@@ -27,7 +29,8 @@ export class API {
     ).then(({ data }) => data);
   }
 
-  searchMovie() {
+  searchMovies() {
+    this.lastRequest = this.searchMovies;
     return axios(
       `${this.#url}/search/movie?api_key=${this.#key}&query=${
         this.query

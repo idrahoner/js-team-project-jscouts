@@ -2,6 +2,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
 import { renderGallery, renderLibraryGallery } from '../gallery';
 
+import { pagination } from '../pagination/pagination';
+
 const libOptionBtns = document.querySelectorAll('.header__option__btn');
 const pagination = document.querySelector('.pagination-container');
 const gallery = document.querySelector('.gallery');
@@ -43,8 +45,9 @@ function handleSubmit(event) {
   }
   loader.classList.toggle('loader-hidden');
   movieApi.setQuery(inputValue);
+  pagination.reset();
   movieApi
-    .searchMovie()
+    .searchMovies()
     .then(({ results }) => {
       if (results.length === 0) {
         Notify.failure('No such movie');
