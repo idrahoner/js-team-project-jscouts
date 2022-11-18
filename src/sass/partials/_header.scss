@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@include mob-screen {
   .header {
     isolation: isolate;
     background-size: cover;
@@ -12,7 +12,7 @@
     }
   }
 }
-@media screen and (min-width: 768px) {
+@include tablet-screen {
   .header {
     isolation: isolate;
     background-size: cover;
@@ -25,7 +25,7 @@
     }
   }
 }
-@media screen and (min-width: 1280px) {
+@include desktop-screen {
   .header {
     background-image: url('../images/desktop-bkg.png');
 
@@ -38,7 +38,7 @@
 }
 
 // lib bkg
-@media screen and (max-width: 767px) {
+@include mob-screen {
   .header-lib-bkg {
     background-image: url('../images/mob-lib-bkg.png');
 
@@ -49,7 +49,7 @@
     }
   }
 }
-@media screen and (min-width: 768px) {
+@include tablet-screen {
   .header-lib-bkg {
     background-image: url('../images/tab-lib-bkg.png');
     @media (min-device-pixel-ratio: 2),
@@ -59,7 +59,7 @@
     }
   }
 }
-@media screen and (min-width: 1280px) {
+@include desktop-screen {
   .header-lib-bkg {
     background-image: url('../images/desk-lib-bkg.png');
 
@@ -163,13 +163,13 @@
   }
 }
 .header__container {
-  @media screen and (max-width: 767px) {
+  @include mob-screen {
     padding: 40px 20px 92px 20px;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet-screen {
     padding: 40px 32px 81px 32px;
   }
-  @media screen and (min-width: 1280px) {
+  @include desktop-screen {
     padding: 45px 32px 44px 32px;
   }
 }
@@ -188,10 +188,10 @@
     line-height: 1.14;
   }
   min-width: 280px;
-  @media screen and (min-width: 768px) {
+  @include tablet-screen {
     min-width: 336px;
   }
-  @media screen and (min-width: 1280px) {
+  @include desktop-screen {
     min-width: 394px;
   }
 }
@@ -218,23 +218,23 @@
     background-color: #ff6b01;
     border: #ff6b01 1px solid;
   }
-  @media screen and (min-width: 768px) {
+  @include tablet-screen {
     min-width: 152px;
   }
-  @media screen and (min-width: 1280px) {
+  @include desktop-screen {
     min-width: 148px;
   }
   &-list {
     display: flex;
     justify-content: center;
-    @media screen and (max-width: 767px) {
+    @include mob-screen {
       gap: 20px;
     }
 
-    @media screen and (min-width: 768px) {
+    @include tablet-screen {
       gap: 32px;
     }
-    @media screen and (min-width: 1280px) {
+    @include desktop-screen {
       gap: 16px;
     }
   }
@@ -261,6 +261,14 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-.main-section{
+.main-section {
   flex: 1;
+}
+.empty-library-text {
+  font-size: 30px;
+  @include tablet-screen {
+    width: 700px;
+    font-size: 46px;
+    text-align: center;
+  }
 }
