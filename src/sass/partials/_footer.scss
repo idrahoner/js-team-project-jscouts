@@ -1,5 +1,5 @@
 .footer {
-  background: #f7f7f7;
+  background: var(--greyWhite);
   padding-top: 28px;
   padding-bottom: 29px;
 
@@ -31,7 +31,7 @@
 
   font-size: 14px;
   line-height: 1.1;
-  color: #545454;
+  color: var(--grey);
 
   @include tablet-screen {
     font-size: 16px;
@@ -40,13 +40,13 @@
 }
 
 .footer__link {
-  color: #545454;
+  color: var(--grey);
   text-decoration: underline;
   margin-left: 4px;
   &:hover,
   &:focus {
-    color: #ff6b08;
-    text-shadow: #9cccec 1px 0 5px;
+    color: var(--orange);
+    text-shadow: var(--whiteBlue) 1px 0 5px;
     text-decoration: none;
 
     transition-property: transform;
