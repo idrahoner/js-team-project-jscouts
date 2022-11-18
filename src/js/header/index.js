@@ -1,8 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
-import { renderGallery, renderLibraryGallery } from '../gallery';
-
-import { pagination } from '../pagination/pagination';
+import { showGallery, renderLibraryGallery } from '../gallery';
 
 const libOptionBtns = document.querySelectorAll('.header__option__btn');
 const pagination = document.querySelector('.pagination-container');
@@ -45,15 +43,14 @@ function handleSubmit(event) {
   }
   loader.classList.toggle('loader-hidden');
   movieApi.setQuery(inputValue);
-  pagination.reset();
   movieApi
     .searchMovies()
-    .then(({ results }) => {
-      if (results.length === 0) {
+    .then(response => {
+      if (response.results.length === 0) {
         Notify.failure('No such movie');
         return;
       }
-      return renderGallery(results);
+      return showGallery(response);
     })
     .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));

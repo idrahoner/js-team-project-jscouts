@@ -34,9 +34,17 @@ const options = {
 };
 
 const loader = document.querySelector('.loader');
-export const pagination = new Pagination(containerEl, options);
 
-export async function showGallery(response) {
+export function startPagination(response) {
+  const responseOption = {
+    totalItems: response.total_results < 10000 ? response.total_results : 10000,
+  };
+
+  const pagination = new Pagination(containerEl, {
+    ...options,
+    ...responseOption,
+  });
+  pagination.reset();
   pagination.on('beforeMove', eventData => {
     movieApi.setPage(eventData.page);
     loader.classList.toggle('loader-hidden');
@@ -46,6 +54,6 @@ export async function showGallery(response) {
       .catch(console.log)
       .then(() => loader.classList.toggle('loader-hidden'));
   });
-  await renderGallery(response.results);
+
   pagination.on('afterMove', scrollToTop);
 }

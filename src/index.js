@@ -8,8 +8,7 @@ import * as footer from './js/modal/modal-footer';
 const WATCHED_MOVIE_KEY = 'wathcedMovieList';
 export const QUEUE_MOVIE_KEY = 'queueMovieList';
 
-import { renderGallery } from './js/gallery';
-import { showGallery } from './js/pagination/pagination';
+import { showGallery } from './js/gallery';
 
 const loader = document.querySelector('.loader');
 

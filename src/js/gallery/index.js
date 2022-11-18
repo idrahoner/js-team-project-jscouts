@@ -1,5 +1,6 @@
 import { movieApi } from '../utils';
 import { showMovieDetails } from '../modal/modal';
+import { startPagination } from '../pagination/pagination';
 import card from '../../templates/card.hbs';
 import cardForLibrary from '../../templates/card-for-library.hbs';
 
@@ -48,4 +49,11 @@ async function prepareToRender(array) {
 
 export function renderLibraryGallery(array) {
   galleryEl.innerHTML = cardForLibrary(array);
+}
+
+export async function showGallery(response) {
+  await renderGallery(response.results);
+  if (response.total_results !== 0) {
+    startPagination(response);
+  }
 }
