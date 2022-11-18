@@ -1,14 +1,12 @@
 .modal-show {
-  height: 100vh;
   overflow: hidden;
-  padding-right: 15px;
 }
 
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 999;
   background-color: rgba(0, 0, 0, 0.3);
 
   width: 100%;
@@ -46,6 +44,7 @@
   top: 50%;
   left: 50%;
 
+
   max-width: 280px;
   width: 100%;
   background-color: var(--white);
@@ -59,6 +58,8 @@
   margin-right: auto;
   padding: 48px 20px 40px 20px;
   transform: translate(-50%, -50%) scale(1);
+
+  opacity: 1;
 
   @include tablet-screen {
     display: flex;
