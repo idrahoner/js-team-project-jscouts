@@ -44,7 +44,7 @@
   top: 50%;
   left: 50%;
 
-  margin: auto 0;
+
   max-width: 280px;
   width: 100%;
   background-color: var(--white);
@@ -58,6 +58,8 @@
   margin-right: auto;
   padding: 48px 20px 40px 20px;
   transform: translate(-50%, -50%) scale(1);
+
+  opacity: 1;
 
   @include tablet-screen {
     display: flex;
