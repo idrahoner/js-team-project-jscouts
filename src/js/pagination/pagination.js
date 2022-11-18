@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import { renderGallery } from '../gallery';
 import { scrollToTop } from '../scroll-to-top/scroll-to-top';
 import { movieApi } from '../utils';
+import { loader } from '../header';
 
 const PER_PAGE = 20;
 
@@ -32,8 +33,6 @@ const options = {
       '</a>',
   },
 };
-
-const loader = document.querySelector('.loader');
 
 export function startPagination(response) {
   const responseOption = {

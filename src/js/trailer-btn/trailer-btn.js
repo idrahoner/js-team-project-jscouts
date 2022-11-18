@@ -1,8 +1,7 @@
 import { movieApi } from '../utils';
 import { onOpenModal, modalBodyEl } from '../modal/modal';
-
+import { loader } from '../header';
 const galleryEl = document.querySelector('.gallery');
-const loader = document.querySelector('.loader');
 
 galleryEl.addEventListener('click', handleTrailerBtnClick);
 function handleTrailerBtnClick(event) {

@@ -5,7 +5,7 @@ import { showGallery, renderLibraryGallery } from '../gallery';
 const libOptionBtns = document.querySelectorAll('.header__option__btn');
 const pagination = document.querySelector('.pagination-container');
 const gallery = document.querySelector('.gallery');
-const loader = document.querySelector('.loader');
+export const loader = document.querySelector('.loader');
 const header = document.querySelector('.header');
 const headerWrapper = document.querySelector('.header__wrapper');
 const homeNavItem = document.querySelector('.js-home-nav-item');

@@ -1,5 +1,6 @@
 import Notiflix from 'notiflix';
 import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
+import { loader } from '../header';
 import modalMarkup from '../../templates/modal.hbs';
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
@@ -33,7 +34,6 @@ function onEscKeydown(e) {
   }
 }
 
-const loader = document.querySelector('.loader');
 export async function showMovieDetails(movieId) {
   onOpenModal();
   loader.classList.toggle('loader-hidden');
