@@ -60,7 +60,7 @@
 }
 
 .modal__category {
-  color: #8c8c8c;
+  color: var(--grey);
   width: 48%;
 }
 
@@ -73,14 +73,14 @@
 }
 
 .modal__info-vote {
-  background: #ff6b01;
-  color: white;
+  background: var(--orange);
+  color: var(--white);
   border-radius: 5px;
   padding: 1px 9px;
 }
 
 .modal__info-votes {
-  background: #f7f7f7;
+  background: var(--greyWhite);
   border-radius: 5px;
   padding: 1px 4px;
 }
@@ -116,8 +116,8 @@
   text-transform: uppercase;
   padding: 6px 27px;
   border: transparent;
-  color: #ffffff;
-  background: #ff6b01;
+  color: var(--white);
+  background: var(--orange);
 
   cursor: pointer;
 
@@ -147,8 +147,8 @@
   text-transform: uppercase;
   padding: 13px 13px;
   border: transparent;
-  color: #ffffff;
-  background: #ff6b01;
+  color: var(--white);
+  background: var(--orange);
   cursor: pointer;
 
   @include tablet-screen {
@@ -171,8 +171,8 @@
 
 .modal__btn-on {
   cursor: pointer;
-  border: 1px solid #000000;
+  border: 1px solid var(--black);
 
-  color: #000000;
-  background-color: #ffffff;
+  color: var(--black);
+  background-color: var(--white);
 }

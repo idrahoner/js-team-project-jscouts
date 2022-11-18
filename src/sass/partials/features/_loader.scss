@@ -18,7 +18,7 @@ figure {
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--white);
   animation: flash 2.4s linear infinite;
   opacity: 0;
 }
@@ -34,28 +34,28 @@ figure {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #ff4444;
+  background: var(--blackOrange);
   animation: dotsY 2.4s linear infinite;
 }
 .dot:nth-child(3) {
   left: 0;
   right: 0;
   top: 0;
-  background: #ffbb33;
+  background: var(--yellow);
   animation: dotsX 2.4s linear infinite;
 }
 .dot:nth-child(4) {
   top: 0;
   bottom: 0;
   right: 0;
-  background: #99cc00;
+  background: var(--gren);
   animation: dotsY 2.4s linear infinite;
 }
 .dot:nth-child(5) {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #33b5e5;
+  background: var(--blue);
   animation: dotsX 2.4s linear infinite;
 }
 

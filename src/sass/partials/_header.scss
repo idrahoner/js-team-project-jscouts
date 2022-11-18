@@ -86,7 +86,7 @@
 }
 
 .header {
-  color: #fff;
+  color: var(--white);
   &__wrapper {
     align-items: center;
     display: flex;
@@ -115,7 +115,7 @@
   }
   &__nav__item:first-child::after {
     content: '';
-    background-color: #ff001b;
+    background-color: var(--red);
     height: 3px;
     width: 35px;
     position: absolute;
@@ -125,7 +125,7 @@
 
   &__nav__item:nth-child(2)::after {
     content: '';
-    background-color: #ff001b;
+    background-color: var(--red);
     height: 3px;
     width: 69px;
     position: absolute;
@@ -177,13 +177,13 @@
   outline: none;
   background-color: transparent;
   border: none;
-  border-bottom: #fff 1px solid;
-  color: #fff;
+  border-bottom: var(--white) 1px solid;
+  color: var(--white);
   font-size: 14px;
   line-height: 1.14;
   padding-bottom: 4px;
   &::placeholder {
-    color: #fff;
+    color: var(--white);
     font-size: 14px;
     line-height: 1.14;
   }
@@ -199,14 +199,14 @@
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--white);
   padding: 12px 10px 12px 10px;
   text-align: center;
   min-width: 130px;
   border-radius: 5px;
   cursor: pointer;
   background-color: transparent;
-  border: #fff 1px solid;
+  border: var(--white) 1px solid;
   &:hover,
   :focus {
     transform: translateY(-2px);
@@ -215,8 +215,8 @@
     transform: translateY(0px);
   }
   &--active {
-    background-color: #ff6b01;
-    border: #ff6b01 1px solid;
+    background-color: var(--orange);
+    border: var(--orange) 1px solid;
   }
   @media screen and (min-width: 768px) {
     min-width: 152px;

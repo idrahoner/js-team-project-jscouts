@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.56);
+  background-color: var(--opacityBlack);
   transition: opacity 0.25s, visibility 0.25s;
   position: fixed;
   top: 0;
@@ -22,7 +22,7 @@
 }
 
 .modal__content {
-  background-color: #f7f1f1;
+  background-color: var(--greyWhite);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -56,7 +56,7 @@
   cursor: pointer;
   &:hover,
   &:focus {
-    color: #ff6b08;
+    color: var(--orange);
     transition-property: transform;
     transition-duration: 200ms;
     &:hover,
@@ -81,7 +81,7 @@
 .team__title {
   text-align: center;
   margin-bottom: 5px;
-  color: #ff6b08;
+  color: var(--orange);
   font-size: 15px;
   @include tablet-screen {
     font-size: 20px;
@@ -95,7 +95,7 @@
   text-align: center;
   font-size: 15px;
   font-weight: 500;
-  text-shadow: #9cccec 1px 0 5px;
+  text-shadow: var(--whiteBlue) 1px 0 5px;
   margin-bottom: 10px;
   @include tablet-screen {
     font-size: 20px;
@@ -141,7 +141,7 @@
 .team__name {
   font-weight: 500;
   text-align: center;
-  color: #ff6b08;
+  color: var(--orange);
 
   @include tablet-screen {
     font-weight: 600;
@@ -154,7 +154,7 @@
 .team__position {
   font-weight: 500;
   text-align: center;
-  text-shadow: #9cccec 1px 0 5px;
+  text-shadow: var(--whiteBlue) 1px 0 5px;
   @include tablet-screen {
     font-weight: 600;
   }
