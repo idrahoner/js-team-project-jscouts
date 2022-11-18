@@ -1,10 +1,10 @@
-import { API } from '../utils/api';
-import card from '../../templates/card.hbs';
+import { movieApi } from '../utils';
 import { showMovieDetails } from '../modal/modal';
+import { startPagination } from '../pagination/pagination';
+import card from '../../templates/card.hbs';
 import cardForLibrary from '../../templates/card-for-library.hbs';
 
 const galleryEl = document.querySelector('.gallery');
-const movieApi = new API();
 
 galleryEl.addEventListener('click', onCardClick);
 
@@ -19,7 +19,7 @@ function onCardClick(event) {
   const galleryItemEl = event.target.closest('.templates-film');
   const movieId = galleryItemEl.dataset.id;
 
-  showMovieDetails(movieId);
+  showMovieDetails(movieId).catch(console.log);
 }
 
 export async function renderGallery(array) {
@@ -49,4 +49,11 @@ async function prepareToRender(array) {
 
 export function renderLibraryGallery(array) {
   galleryEl.innerHTML = cardForLibrary(array);
+}
+
+export async function showGallery(response) {
+  await renderGallery(response.results);
+  if (response.total_results !== 0) {
+    startPagination(response);
+  }
 }

@@ -1,16 +1,11 @@
-import { API } from '../utils/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { renderGallery, renderLibraryGallery } from '../gallery';
-import {
-  QUEUE_MOVIE_KEY,
-  WATCHED_MOVIE_KEY,
-  LocalStorageAPI,
-} from '../utils/local-storage-api';
+import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
+import { showGallery, renderLibraryGallery } from '../gallery';
 
 const libOptionBtns = document.querySelectorAll('.header__option__btn');
 const pagination = document.querySelector('.pagination-container');
 const gallery = document.querySelector('.gallery');
-const loader = document.querySelector('.loader');
+export const loader = document.querySelector('.loader');
 const header = document.querySelector('.header');
 const headerWrapper = document.querySelector('.header__wrapper');
 const homeNavItem = document.querySelector('.js-home-nav-item');
@@ -38,8 +33,6 @@ function handlePageChange(event) {
   optionBtnList.classList.toggle('hidden-in-header');
 }
 
-const obj = new API();
-
 searchForm.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
@@ -49,15 +42,15 @@ function handleSubmit(event) {
     return;
   }
   loader.classList.toggle('loader-hidden');
-  obj.setQuery(inputValue);
-  obj
-    .searchMovie()
-    .then(({ results }) => {
-      if (results.length === 0) {
+  movieApi.setQuery(inputValue);
+  movieApi
+    .searchMovies()
+    .then(response => {
+      if (response.results.length === 0) {
         Notify.failure('No such movie');
         return;
       }
-      return renderGallery(results);
+      return showGallery(response);
     })
     .catch(console.log)
     .then(() => loader.classList.toggle('loader-hidden'));
@@ -76,11 +69,10 @@ function handleDirectToMain(event) {
   }
 }
 // library render
-const LSAPI = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
 libraryBtn.addEventListener('click', handleDirectToLibrary);
 function handleDirectToLibrary() {
-  const myLibraryItems = LSAPI.getItems();
+  const myLibraryItems = queueMovieStore.getItems();
 
   if (myLibraryItems === null) {
     Notify.info('Your queue list is empty');
@@ -91,8 +83,6 @@ function handleDirectToLibrary() {
 }
 
 // watched and queue features
-const LSWatched = new LocalStorageAPI(WATCHED_MOVIE_KEY);
-const LSQueue = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
 optionBtnList.addEventListener('click', handleLibOptionsChange);
 function handleLibOptionsChange(event) {
@@ -106,7 +96,7 @@ function handleLibOptionsChange(event) {
     btn.classList.toggle('header__option__btn--active');
   });
   if (event.target.classList.contains('js-watched-btn')) {
-    const myWatchedItems = LSWatched.getItems();
+    const myWatchedItems = watchedMovieStore.getItems();
     if (myWatchedItems === null) {
       Notify.info('Your watched list is empty');
       gallery.innerHTML = '';
@@ -116,7 +106,7 @@ function handleLibOptionsChange(event) {
     return;
   }
   if (event.target.classList.contains('js-queue-btn')) {
-    const myQueuedItems = LSQueue.getItems();
+    const myQueuedItems = queueMovieStore.getItems();
     if (myQueuedItems === null) {
       Notify.info('Your queue list is empty');
       gallery.innerHTML = '';

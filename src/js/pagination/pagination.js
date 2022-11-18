@@ -1,8 +1,8 @@
 import Pagination from 'tui-pagination';
 import { renderGallery } from '../gallery';
-import { API } from '../utils/api';
-
-const movieApi = new API();
+import { scrollToTop } from '../scroll-to-top/scroll-to-top';
+import { movieApi } from '../utils';
+import { loader } from '../header';
 
 const PER_PAGE = 20;
 
@@ -12,7 +12,7 @@ const options = {
   itemsPerPage: PER_PAGE,
   visiblePages: 5,
   page: 1,
-  centerAlign: false,
+  centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
@@ -34,22 +34,25 @@ const options = {
   },
 };
 
-const loader = document.querySelector('.loader');
-
-export async function showGallery(response) {
-  const responseOptions = {
-    totalItems: response.total_results,
+export function startPagination(response) {
+  const responseOption = {
+    totalItems: response.total_results < 10000 ? response.total_results : 10000,
   };
+
   const pagination = new Pagination(containerEl, {
     ...options,
+    ...responseOption,
   });
-  pagination.on('beforeMove', function (eventData) {
+  pagination.reset();
+  pagination.on('beforeMove', eventData => {
     movieApi.setPage(eventData.page);
+    loader.classList.toggle('loader-hidden');
     movieApi
-      .getPopularMovies()
+      .lastRequest()
       .then(({ results }) => renderGallery(results))
       .catch(console.log)
       .then(() => loader.classList.toggle('loader-hidden'));
   });
-  await renderGallery(response.results);
+
+  pagination.on('afterMove', scrollToTop);
 }

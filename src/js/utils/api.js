@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const loader = document.querySelector('.loader');
-
 export class API {
   #key;
   #url;
@@ -11,10 +9,11 @@ export class API {
     this.#key = '4482c6f70dd5d76d520552b0779b25da';
     this.page = 1;
     this.query = '';
+    this.lastRequest = null;
   }
 
   getPopularMovies() {
-    loader.classList.toggle('loader-hidden');
+    this.lastRequest = this.getPopularMovies;
     return axios(
       `${this.#url}/discover/movie?sort_by=popularity.desc&api_key=${
         this.#key
@@ -30,7 +29,8 @@ export class API {
     ).then(({ data }) => data);
   }
 
-  searchMovie() {
+  searchMovies() {
+    this.lastRequest = this.searchMovies;
     return axios(
       `${this.#url}/search/movie?api_key=${this.#key}&query=${
         this.query
@@ -42,6 +42,12 @@ export class API {
     return axios(`${this.#url}/genre/movie/list?api_key=${this.#key}`).then(
       ({ data }) => data.genres
     );
+  }
+
+  getTrailer(id) {
+    return axios(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=4482c6f70dd5d76d520552b0779b25da`
+    ).then(({ data }) => data.results[0].key);
   }
 
   increasePage() {

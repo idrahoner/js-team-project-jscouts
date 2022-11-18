@@ -1,23 +1,15 @@
-import { API } from '../utils/api';
 import Notiflix from 'notiflix';
+import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
+import { loader } from '../header';
 import modalMarkup from '../../templates/modal.hbs';
-import {
-  LocalStorageAPI,
-  QUEUE_MOVIE_KEY,
-  WATCHED_MOVIE_KEY,
-} from '../utils/local-storage-api';
-
-const getDetails = new API();
-const watchedMovieLocalStorage = new LocalStorageAPI(WATCHED_MOVIE_KEY);
-const queueMovieLocalStorage = new LocalStorageAPI(QUEUE_MOVIE_KEY);
 
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
-const modalBodyEl = document.querySelector('.modal__body');
+export const modalBodyEl = document.querySelector('.modal__body');
 
 backdropEl.addEventListener('click', onBackdropClick);
 
-function onOpenModal() {
+export function onOpenModal() {
   window.addEventListener('keydown', onEscKeydown);
   backdropEl.classList.remove('is-hidden');
   closeModalBtn.addEventListener('click', onCloseModal);
@@ -42,11 +34,10 @@ function onEscKeydown(e) {
   }
 }
 
-const loader = document.querySelector('.loader');
 export async function showMovieDetails(movieId) {
   onOpenModal();
   loader.classList.toggle('loader-hidden');
-  const movieData = await getDetails.getMovieById(movieId);
+  const movieData = await movieApi.getMovieById(movieId);
   movieData.genres = movieData.genres.map(e => e.name).join(', ');
   loader.classList.toggle('loader-hidden');
   modalBodyEl.innerHTML = modalMarkup(movieData);
@@ -57,7 +48,7 @@ export async function showMovieDetails(movieId) {
   modalBtnWatchedMovie.addEventListener('click', onAddWatchedMovie);
   modalBtnQueueMovie.addEventListener('click', onAddQueueMovie);
 
-  if (watchedMovieLocalStorage.findItem(Number(movieId))) {
+  if (watchedMovieStore.findItem(Number(movieId))) {
     modalBtnWatchedMovie.textContent = modalBtnWatchedMovie.classList.contains(
       'modal__btn-watched'
     )
@@ -66,7 +57,7 @@ export async function showMovieDetails(movieId) {
     modalBtnWatchedMovie.classList.add('modal__btn-on');
   }
 
-  if (queueMovieLocalStorage.findItem(Number(movieId))) {
+  if (queueMovieStore.findItem(Number(movieId))) {
     modalBtnQueueMovie.textContent = modalBtnQueueMovie.classList.contains(
       'modal__btn-watched'
     )
@@ -76,15 +67,11 @@ export async function showMovieDetails(movieId) {
   }
 
   function onAddWatchedMovie(e) {
-    prepareButtonContent(
-      watchedMovieLocalStorage,
-      modalBtnWatchedMovie,
-      movieData
-    );
+    prepareButtonContent(watchedMovieStore, modalBtnWatchedMovie, movieData);
   }
 
   function onAddQueueMovie(e) {
-    prepareButtonContent(queueMovieLocalStorage, modalBtnQueueMovie, movieData);
+    prepareButtonContent(queueMovieStore, modalBtnQueueMovie, movieData);
   }
 }
 

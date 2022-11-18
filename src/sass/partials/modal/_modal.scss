@@ -1,0 +1,71 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  opacity: 1;
+  pointer-events: initial;
+  visibility: visible;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal__btn-close {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  padding: 0;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  max-width: 280px;
+  width: 100%;
+  background-color: white;
+  color: #000000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.3;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 48px 20px 40px 20px;
+  transform: translate(-50%, -50%) scale(1);
+
+  @include tablet-screen {
+    display: flex;
+    max-width: 704px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @include desktop-screen {
+    display: flex;
+    max-width: 806px;
+    padding: 40px 12px;
+  }
+}
+
+.modal__body {
+  @include tablet-screen {
+    display: flex;
+  }
+}
