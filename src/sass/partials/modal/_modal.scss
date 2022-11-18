@@ -41,8 +41,6 @@
   cursor: pointer;
 }
 
-
-
 .modal {
   position: absolute;
   top: 50%;
@@ -50,9 +48,10 @@
 
   max-width: 280px;
   width: 100%;
-  background-color: white;
-  color: #000000;
+  background-color: var(--white);
+  color: var(--black);
   border-radius: 1%;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 1.3;

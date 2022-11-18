@@ -34,13 +34,13 @@
   font-size: 11px;
   line-height: 1.3;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--black);
   @include tablet-screen {
     font-size: 12px;
   }
 }
 .templates-film__text {
-  color: rgba(255, 107, 8, 1);
+  color: var(--orange);
 }
 .span:last-child {
   display: none;
@@ -59,9 +59,9 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.16;
-  background: #ff6b01;
+  background: var(--orange);
   border-radius: 5px;
-  color: #ffffff;
+  color: var(--white);
   @include desktop-screen {
     width: 40px;
     height: 20px;

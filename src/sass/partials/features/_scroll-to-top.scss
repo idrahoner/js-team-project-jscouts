@@ -7,8 +7,8 @@
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #ff6b01;
-  color: white;
+  background-color: var(--orange);
+  color: var(--white);
   cursor: pointer;
 
   width: 50px;
@@ -17,5 +17,5 @@
 }
 
 #myBtn:hover {
-  background-color: #555;
+  background-color: var(--grey);
 }
