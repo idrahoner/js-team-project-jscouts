@@ -98,7 +98,7 @@ function handleLibOptionsChange(event) {
   });
   if (event.target.classList.contains('js-watched-btn')) {
     const myWatchedItems = watchedMovieStore.getItems();
-    if (myWatchedItems === null || myLibraryItems.length === 0) {
+    if (myWatchedItems === null || myWatchedItems.length === 0) {
       Notify.info('Your watched list is empty');
       gallery.innerHTML =
         '<p class="empty-library-text" >Your watch list is empty</p>';
@@ -109,7 +109,7 @@ function handleLibOptionsChange(event) {
   }
   if (event.target.classList.contains('js-queue-btn')) {
     const myQueuedItems = queueMovieStore.getItems();
-    if (myQueuedItems === null || myLibraryItems.length === 0) {
+    if (myQueuedItems === null || myQueuedItems.length === 0) {
       Notify.info('Your queue list is empty');
       gallery.innerHTML =
         '<p class="empty-library-text" >Your queue is empty</p>';
