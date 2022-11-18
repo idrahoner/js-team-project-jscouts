@@ -11,9 +11,9 @@ function scrollFunction() {
     mybutton.style.display = 'none';
   }
 }
-mybutton.addEventListener('click', topFunction);
+mybutton.addEventListener('click', scrollToTop);
 
-function topFunction() {
+export function scrollToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }

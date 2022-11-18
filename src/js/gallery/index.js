@@ -1,6 +1,6 @@
 import { movieApi } from '../utils';
-import card from '../../templates/card.hbs';
 import { showMovieDetails } from '../modal/modal';
+import card from '../../templates/card.hbs';
 import cardForLibrary from '../../templates/card-for-library.hbs';
 
 const galleryEl = document.querySelector('.gallery');

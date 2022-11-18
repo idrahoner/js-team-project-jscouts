@@ -1,8 +1,7 @@
 import Pagination from 'tui-pagination';
 import { renderGallery } from '../gallery';
-import { API } from '../utils/api';
-
-const movieApi = new API();
+import { scrollToTop } from '../scroll-to-top/scroll-to-top';
+import { movieApi } from '../utils';
 
 const PER_PAGE = 20;
 
@@ -35,16 +34,12 @@ const options = {
 };
 
 const loader = document.querySelector('.loader');
+const pagination = new Pagination(containerEl, options);
 
 export async function showGallery(response) {
-  const responseOptions = {
-    totalItems: response.total_results,
-  };
-  const pagination = new Pagination(containerEl, {
-    ...options,
-  });
-  pagination.on('beforeMove', function (eventData) {
+  pagination.on('beforeMove', eventData => {
     movieApi.setPage(eventData.page);
+    loader.classList.toggle('loader-hidden');
     movieApi
       .getPopularMovies()
       .then(({ results }) => renderGallery(results))
@@ -52,4 +47,5 @@ export async function showGallery(response) {
       .then(() => loader.classList.toggle('loader-hidden'));
   });
   await renderGallery(response.results);
+  pagination.on('afterMove', scrollToTop);
 }

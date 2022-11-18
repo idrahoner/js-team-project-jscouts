@@ -14,6 +14,7 @@ import { showGallery } from './js/pagination/pagination';
 const loader = document.querySelector('.loader');
 
 (() => {
+  loader.classList.toggle('loader-hidden');
   movieApi
     .getPopularMovies()
     .then(data => showGallery(data))
