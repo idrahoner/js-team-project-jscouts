@@ -1,7 +1,14 @@
+.modal-show {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
 
   width: 100%;
@@ -33,6 +40,8 @@
 
   cursor: pointer;
 }
+
+
 
 .modal {
   position: absolute;
