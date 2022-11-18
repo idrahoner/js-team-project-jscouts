@@ -1,4 +1,6 @@
 .modal__img {
+  border-radius: 5px;
+  overflow: hidden;
   @include tablet-screen {
     width: 264px;
     height: 373px;
@@ -13,6 +15,7 @@
     margin-right: 16px;
   }
 }
+
 
 .modal__img-movie {
   display: block;

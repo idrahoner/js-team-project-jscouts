@@ -1,7 +1,14 @@
+.modal-show {
+  height: 100vh;
+  overflow-y: hidden;
+  padding-right: 15px;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.3);
 
   width: 100%;
@@ -34,6 +41,8 @@
   cursor: pointer;
 }
 
+
+
 .modal {
   position: absolute;
   top: 50%;
@@ -43,6 +52,7 @@
   width: 100%;
   background-color: white;
   color: #000000;
+  border-radius: 1%;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.3;

@@ -3,6 +3,7 @@ import { movieApi, watchedMovieStore, queueMovieStore } from '../utils';
 import { loader } from '../header';
 import modalMarkup from '../../templates/modal.hbs';
 
+
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const backdropEl = document.querySelector('[data-modal]');
 export const modalBodyEl = document.querySelector('.modal__body');
@@ -13,12 +14,14 @@ export function onOpenModal() {
   window.addEventListener('keydown', onEscKeydown);
   backdropEl.classList.remove('is-hidden');
   closeModalBtn.addEventListener('click', onCloseModal);
+  document.body.classList.add('modal-show');
 }
 
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeydown);
   backdropEl.classList.add('is-hidden');
   modalBodyEl.innerHTML = '';
+  document.body.classList.remove('modal-show');
 }
 
 function onBackdropClick(e) {
