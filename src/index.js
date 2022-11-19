@@ -6,7 +6,7 @@ import { movieApi } from './js/utils';
 import { loader } from './js/header/index';
 import './js/pagination/pagination';
 import * as footer from './js/modal/modal-footer';
-
+import * as authorization from './js/authorization/authorization';
 import { showGallery } from './js/gallery';
 
 (() => {

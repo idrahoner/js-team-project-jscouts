@@ -1,0 +1,59 @@
+.js-auth-backdrop {
+  background-image: url('../images/backdrop-img.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 999;
+}
+.js-auth-modal {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.auth-title {
+  font-size: 20px;
+}
+.auth-btns {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.auth-input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: black 1px solid;
+
+  font-size: 14px;
+  line-height: 1.14;
+  padding-bottom: 4px;
+}
+.auth-btns-item {
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  padding: 12px 10px 12px 10px;
+  text-align: center;
+  min-width: 130px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: black 1px solid;
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0px);
+  }
+  &--active {
+    background-color: var(--orange);
+    border: var(--orange) 1px solid;
+  }
+}
+.auth-modal-hidden {
+  display: none;
+}
