@@ -96,7 +96,7 @@
   &__nav {
     list-style: none;
     display: flex;
-
+    position: relative;
     gap: 40px;
   }
   &__nav__btn {
@@ -270,5 +270,28 @@ body {
     width: 700px;
     font-size: 46px;
     text-align: center;
+  }
+}
+.sign-out-btn {
+  position: absolute;
+  left: -110px;
+  top: 4px;
+  font-size: 12px;
+
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 5 5 5 5;
+  text-align: center;
+
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: var(--white) 1px solid;
+  &:hover,
+  :focus {
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0px);
   }
 }
