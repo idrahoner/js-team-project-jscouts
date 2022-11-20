@@ -273,6 +273,9 @@ body {
   }
 }
 .sign-out-btn {
+  @include mob-screen {
+    left: -90px;
+  }
   position: absolute;
   left: -110px;
   top: 4px;
