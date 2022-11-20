@@ -34,24 +34,32 @@ function signUp() {
     password.value
   );
 
-  promise.catch(e => {
-    authModal.classList.toggle('auth-modal-hidden');
-    return Notify.failure(e.message);
-  });
-  Notify.success('SignUp Successfully');
-  authModal.classList.toggle('auth-modal-hidden');
+  promise
+    .then(resp => {
+      if (resp) {
+        Notify.success('SignUp Successfully');
+        authModal.classList.toggle('auth-modal-hidden');
+      }
+    })
+    .catch(e => {
+      return Notify.failure(e.message);
+    });
 }
 
 function signIn() {
   const email = document.getElementById('email');
   const password = document.getElementById('password');
   const promise = auth.signInWithEmailAndPassword(email.value, password.value);
-  promise.catch(e => {
-    authModal.classList.toggle('auth-modal-hidden');
-    return Notify.failure(e.message);
-  });
-  Notify.success('SignIn Successfully');
-  authModal.classList.toggle('auth-modal-hidden');
+  promise
+    .then(resp => {
+      if (resp) {
+        Notify.success('SignIn Successfully');
+        authModal.classList.toggle('auth-modal-hidden');
+      }
+    })
+    .catch(e => {
+      return Notify.failure(e.message);
+    });
 }
 
 function signOut() {
